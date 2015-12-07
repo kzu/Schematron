@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<schema xmlns="http://www.ascc.net/xml/schematron">
+  <title>Purchase Orders</title>
+  <ns uri="http://example.com/po-schematron" prefix="po" />
+
+  <pattern name="Basic data">
+    <rule context="po:customer">
+      <assert test="(@sex='Male' and @title='Mr') or (@sex='Female' and (@title='Mrs' or @title='Miss'))">
+        Sex and title have incompatible values.
+      </assert>
+      <report test="@customerId and @partnerId">
+        Both customerId and partnerId can't be present.
+      </report>
+      <report test="not(@customerId) and not(@partnerId)">
+        Either customerId or partnerId must be present.
+      </report>
+    </rule>
+  </pattern>
+
+  <pattern name="Exceptional Orders">
+    <rule context="po:order[count(po:items/po:item) &gt; 100]">
+      <assert test="@priority = 'Max'">
+        An <name /> with more than two items must have a maximum priority.
+      </assert>
+      <report test="not(../@partnerId)">
+        Only partners can place this type of order.
+      </report>
+    </rule>
+  </pattern>
+
+  <pattern name="Special Offers">
+    <rule context="po:order">
+      <assert test="count(po:items/po:item/po:rebate) &lt;= 2">
+        Up to two special rebates are allowed for each purchase order.
+      </assert>
+      <assert test="sum(po:items/po:item/po:rebate/@amount) &lt;= 30">
+        The total discounted percentage can't be greater than 30%.
+      </assert>
+    </rule>
+  </pattern>
+
+  <pattern name="Order Status Validity">
+    <rule context="po:order[@orderStatus='Paid']">
+      <assert test="po:paymentInfo">
+        Paid orders must include the payment information.
+      </assert>
+      <report test="po:cancelInfo">
+        Cancelacion information can't be included for paid <name />.
+      </report>
+    </rule>
+
+    <rule context="po:order[@orderStatus='Paid']/po:paymentInfo">
+      <report test="@method='Card' and not(po:cardDetails)">
+        If payment method is "Card", corresponding details must be given in a cardDetails element.
+      </report>
+      <report test="@method='Cheque' and not(po:chequeDetails)">
+        If payment method is "Cheque", corresponding details must be given in a chequeDetails element.
+      </report>
+      <report test="@method='Cash' and (po:cardDetails or po:chequeDetails)">
+        If payment method is "Cash", cardDetails or chequeDetails aren't applicable.
+      </report>
+    </rule>
+
+    <rule context="po:order[@orderStatus='Cancelled']">
+      <assert test="po:cancelInfo">
+        Canceled orders must include the cancel information.
+      </assert>
+      <report test="po:paymentInfo">
+        Payment information can't be included for canceled <name />.
+      </report>
+    </rule>    
+  </pattern>
+
+</schema>

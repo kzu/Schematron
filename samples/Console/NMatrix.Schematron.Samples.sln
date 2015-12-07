@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMatrix.Schematron", "..\..\src\NMatrix.Schematron.csproj", "{DB7369F1-69CF-4821-98E3-9D6422A7CC36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples", "Samples.csproj", "{E7CD625E-4ED8-4C5F-8926-7365E96AD02C}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DB7369F1-69CF-4821-98E3-9D6422A7CC36}.Debug.ActiveCfg = Debug|.NET
+		{DB7369F1-69CF-4821-98E3-9D6422A7CC36}.Debug.Build.0 = Debug|.NET
+		{DB7369F1-69CF-4821-98E3-9D6422A7CC36}.Release.ActiveCfg = Release|.NET
+		{DB7369F1-69CF-4821-98E3-9D6422A7CC36}.Release.Build.0 = Release|.NET
+		{E7CD625E-4ED8-4C5F-8926-7365E96AD02C}.Debug.ActiveCfg = Debug|.NET
+		{E7CD625E-4ED8-4C5F-8926-7365E96AD02C}.Debug.Build.0 = Debug|.NET
+		{E7CD625E-4ED8-4C5F-8926-7365E96AD02C}.Release.ActiveCfg = Release|.NET
+		{E7CD625E-4ED8-4C5F-8926-7365E96AD02C}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

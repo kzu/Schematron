@@ -1,0 +1,81 @@
+<project>
+    <assemblies>
+        <assembly location="..\..\bin\NMatrix.Schematron.dll" documentation="..\..\bin\NMatrix.Schematron.xml" />
+    </assemblies>
+    <namespaces>
+        <namespace name="NMatrix.Schematron">This is the NMatrix Schematron.NET, an implementation of the Schematron standard by Rick Jeliffe.</namespace>
+        <namespace name="NMatrix.Schematron.Formatters"></namespace>
+    </namespaces>
+    <documenters>
+        <documenter name="JavaDoc">
+            <property name="OutputDirectory" value=".\docs\JavaDoc\" />
+            <property name="ShowMissingSummaries" value="False" />
+            <property name="ShowMissingRemarks" value="False" />
+            <property name="ShowMissingParams" value="False" />
+            <property name="ShowMissingReturns" value="False" />
+            <property name="ShowMissingValues" value="False" />
+            <property name="DocumentInternals" value="False" />
+            <property name="DocumentProtected" value="True" />
+            <property name="DocumentPrivates" value="False" />
+            <property name="DocumentEmptyNamespaces" value="False" />
+            <property name="IncludeAssemblyVersion" value="False" />
+            <property name="CopyrightText" value="" />
+            <property name="CopyrightHref" value="" />
+            <property name="SkipNamespacesWithoutSummaries" value="False" />
+            <property name="AutoPropertyBackerSummaries" value="False" />
+            <property name="AutoDocumentConstructors" value="True" />
+            <property name="DocumentAttributes" value="False" />
+            <property name="DocumentedAttributes" value="" />
+        </documenter>
+        <documenter name="MSDN">
+            <property name="OutputDirectory" value="..\doc\Msdn\" />
+            <property name="HtmlHelpName" value="NMatrix.Schematron" />
+            <property name="IncludeFavorites" value="False" />
+            <property name="Title" value="NMatrix Schematron.NET Documentation" />
+            <property name="SplitTOCs" value="False" />
+            <property name="DefaulTOC" value="" />
+            <property name="IncludeHierarchy" value="True" />
+            <property name="ShowVisualBasic" value="False" />
+            <property name="OmitObjectTags" value="False" />
+            <property name="SortTOCByNamespace" value="True" />
+            <property name="ShowMissingSummaries" value="False" />
+            <property name="ShowMissingRemarks" value="False" />
+            <property name="ShowMissingParams" value="False" />
+            <property name="ShowMissingReturns" value="False" />
+            <property name="ShowMissingValues" value="False" />
+            <property name="DocumentInternals" value="True" />
+            <property name="DocumentProtected" value="True" />
+            <property name="DocumentPrivates" value="True" />
+            <property name="DocumentEmptyNamespaces" value="False" />
+            <property name="IncludeAssemblyVersion" value="True" />
+            <property name="CopyrightText" value="NMatrix Project" />
+            <property name="CopyrightHref" value="http://nmatrix.sourceforge.net" />
+            <property name="ReferencesPath" value="E:\DiscoDany\NMatrix\bin" />
+            <property name="SkipNamespacesWithoutSummaries" value="False" />
+            <property name="AutoPropertyBackerSummaries" value="False" />
+            <property name="AutoDocumentConstructors" value="True" />
+            <property name="DocumentAttributes" value="False" />
+            <property name="DocumentedAttributes" value="" />
+        </documenter>
+        <documenter name="XML">
+            <property name="OutputFile" value="..\doc\NNatrix.Schematron.xml" />
+            <property name="ShowMissingSummaries" value="False" />
+            <property name="ShowMissingRemarks" value="False" />
+            <property name="ShowMissingParams" value="False" />
+            <property name="ShowMissingReturns" value="False" />
+            <property name="ShowMissingValues" value="False" />
+            <property name="DocumentInternals" value="True" />
+            <property name="DocumentProtected" value="True" />
+            <property name="DocumentPrivates" value="True" />
+            <property name="DocumentEmptyNamespaces" value="False" />
+            <property name="IncludeAssemblyVersion" value="True" />
+            <property name="CopyrightText" value="NMatrix Project" />
+            <property name="CopyrightHref" value="nmatrix.sourceforge.net" />
+            <property name="SkipNamespacesWithoutSummaries" value="False" />
+            <property name="AutoPropertyBackerSummaries" value="True" />
+            <property name="AutoDocumentConstructors" value="True" />
+            <property name="DocumentAttributes" value="False" />
+            <property name="DocumentedAttributes" value="" />
+        </documenter>
+    </documenters>
+</project>

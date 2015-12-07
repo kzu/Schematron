@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!-- Co-constraint: Sibling content -->
+<orders xmlns="http://example.com/PO-SC">
+  <order orderDate="1999-10-20">
+    <!-- 
+      1 - Restriction based on sibling elements presence:
+            Only one rebate element per purchase order
+      2 - Restriction based on sibling element attribute value:
+            Specify a maximum allowable rebate percentage 
+            (sum of amount attribute value)
+    -->
+    <items>
+      <item partNum="872-AA">
+        <productName>Lawnmower</productName>
+        <quantity>1</quantity>
+        <USPrice>148.95</USPrice>
+        <rebate amount="15" code="BSD890" />
+      </item>
+
+      <item partNum="926-AA">
+        <productName>Baby Monitor</productName>
+        <quantity>1</quantity>
+        <USPrice>39.98</USPrice>
+        <shipDate>1999-05-21</shipDate>
+        <rebate amount="20" code="PJS572" />
+        <!-- Very basic sibling restriction with WXS 
+            (only one <rebate> per item). -->
+        <!-- <rebate amount="10" code="AJT255" /> -->
+      </item>
+
+      <item partNum="911-AA">
+        <productName>Alerter Phone</productName>
+        <quantity>2</quantity>
+        <USPrice>70.43</USPrice>
+        <shipDate>1999-05-21</shipDate>
+      </item>
+    </items>
+
+  </order>
+</orders>

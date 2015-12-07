@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/po-schematron" xmlns="http://example.com/po-schematron" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xsd:annotation>
+        <xsd:appinfo>
+            <schema xmlns="http://www.ascc.net/xml/schematron">
+                <title>Purchase Orders</title>
+                <ns uri="http://example.com/po-schematron" prefix="po" />
+
+                <pattern name="Basic data">
+                    <rule context="po:customer">
+                        <assert test="(@sex='Male' and @title='Mr') or (@sex='Female' and (@title='Mrs' or @title='Miss'))">
+													Sex and title have incompatible values.
+												</assert>
+                        <report test="@customerId and @partnerId">
+													Both customerId and partnerId can't be present.
+												</report>
+                        <report test="not(@customerId) and not(@partnerId)">
+													Either customerId or partnerId must be present.
+												</report>
+                    </rule>
+                </pattern>
+            </schema>
+        </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:element name="orders">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <!-- General order-related constraints -->
+                <pattern name="Exceptional Orders" xmlns="http://www.ascc.net/xml/schematron">
+                    <rule context="po:order[count(po:items/po:item) &gt; 100]">
+                        <assert test="@priority = 'Max'">
+													An <name /> with more than two items must have a maximum priority.
+												</assert>
+                        <report test="not(../@partnerId)">
+													Only partners can place this type of order.
+												</report>
+                    </rule>
+                </pattern>
+                <pattern name="Special Offers" xmlns="http://www.ascc.net/xml/schematron">
+                    <rule context="po:order">
+                        <assert test="count(po:items/po:item/po:rebate) &lt;= 2">
+													Up to two special rebates are allowed for each purchase order.
+												</assert>
+                        <assert test="sum(po:items/po:item/po:rebate/@amount) &lt;= 30">
+													The total discounted percentage can't be greater than 30%.
+												</assert>
+                    </rule>
+                </pattern>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="customer" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="firstName" type="xsd:string" minOccurs="0" maxOccurs="1" />
+                            <xsd:element name="lastName" type="xsd:string" minOccurs="1" maxOccurs="1" />
+                            <xsd:element name="order" type="orderDef" minOccurs="0" maxOccurs="unbounded" />
+                        </xsd:sequence>
+                        <xsd:attribute name="title" type="titleDef" />
+                        <xsd:attribute name="sex" type="sexDef" />
+                        <xsd:attribute name="customerId" type="xsd:string" />
+                        <xsd:attribute name="partnerId" type="xsd:string" />
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <!-- Becomes required depending on content -->
+    <xsd:simpleType name="priorityDef">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Max" />
+            <xsd:enumeration value="Avg" />
+            <xsd:enumeration value="Min" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!-- Sex and Title have mutual value dependencies -->
+    <xsd:simpleType name="titleDef">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Mr" />
+            <xsd:enumeration value="Mrs" />
+            <xsd:enumeration value="Miss" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="sexDef">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Male" />
+            <xsd:enumeration value="Female" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="statusDef">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Cancelled" />
+            <xsd:enumeration value="Paid" />
+            <xsd:enumeration value="Placed" />
+            <xsd:enumeration value="Submitted" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="orderDef">
+        <xsd:sequence>
+            <xsd:element name="paymentInfo" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <!-- Paid orders information -->
+                        <pattern name="Paid orders" id="paymentInfo" xmlns="http://www.ascc.net/xml/schematron">
+                            <rule context="po:order[@orderStatus='Paid']">
+                                <assert test="po:paymentInfo">
+																	Paid orders must include the payment information.
+																</assert>
+                                <report test="po:cancelInfo">
+																	Cancelacion information can't be included for paid <name />.
+																</report>
+                            </rule>
+                            <rule context="po:order[@orderStatus='Paid']/po:paymentInfo">
+                                <report test="@method='Card' and not(po:cardDetails)">
+																	If payment method is "Card", corresponding details must be given in a cardDetails element.
+																</report>
+                                <report test="@method='Cheque' and not(po:chequeDetails)">
+																	If payment method is "Cheque", corresponding details must be given in a chequeDetails element.
+																</report>
+                                <report test="@method='Cash' and (po:cardDetails or po:chequeDetails)">
+																	If payment method is "Cash", cardDetails or chequeDetails aren't applicable.
+																</report>
+                            </rule>
+                        </pattern>
+                    </xsd:appinfo>
+                </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="cardDetails" type="xsd:string" minOccurs="0" />
+                        <xsd:element name="chequeDetails" type="xsd:string" minOccurs="0" />
+                    </xsd:sequence>
+                    <xsd:attribute name="method">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:enumeration value="Cash" />
+                                <xsd:enumeration value="Cheque" />
+                                <xsd:enumeration value="Card" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:attribute>
+                    <xsd:attribute name="date" type="xsd:date" />
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="cancelInfo" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <!-- Paid orders information -->
+                        <pattern name="Paid orders" id="cancelInfo" xmlns="http://www.ascc.net/xml/schematron">
+                            <rule context="po:order[@orderStatus='Cancelled']">
+                                <assert test="po:cancelInfo">
+																	Canceled orders must include the cancel information.
+																</assert>
+                                <report test="po:paymentInfo">
+																	Payment information can't be included for canceled <name />.
+																</report>
+                            </rule>
+                        </pattern>
+                    </xsd:appinfo>
+                </xsd:annotation>
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="userMessage" type="xsd:string" />
+                    </xsd:sequence>
+                    <xsd:attribute name="reason">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:enumeration value="FailedDelivery" />
+                                <xsd:enumeration value="PriceTooHigh" />
+                                <xsd:enumeration value="PaymentNotAvailable" />
+                                <xsd:enumeration value="TiredOfWaiting" />
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:attribute>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="items" type="Items" minOccurs="0" />
+            <xsd:element name="shipTo" type="USAddressDef" minOccurs="0" />
+            <xsd:element name="billTo" type="USAddressDef" minOccurs="0" />
+        </xsd:sequence>
+        <xsd:attribute name="orderDate" type="xsd:date" />
+        <xsd:attribute name="orderStatus" type="statusDef" use="required" />
+        <xsd:attribute name="priority" type="priorityDef" default="Avg" />
+    </xsd:complexType>
+    <xsd:complexType name="USAddressDef">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string" />
+            <xsd:element name="street" type="xsd:string" />
+            <xsd:element name="city" type="xsd:string" />
+            <xsd:element name="state" type="xsd:string" />
+            <xsd:element name="zip" type="xsd:decimal" />
+        </xsd:sequence>
+        <xsd:attribute name="country" type="xsd:NMTOKEN" fixed="US" />
+    </xsd:complexType>
+    <xsd:complexType name="Items">
+        <xsd:sequence>
+            <xsd:element name="item" minOccurs="0" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="productName" type="xsd:string" />
+                        <xsd:element name="quantity">
+                            <xsd:simpleType>
+                                <xsd:restriction base="xsd:positiveInteger">
+                                    <xsd:maxExclusive value="100" />
+                                </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="USPrice" type="xsd:decimal" />
+                        <xsd:element name="shipDate" type="xsd:date" minOccurs="0" />
+                        <!-- Occurrence restrictions don't satisfy business requirement -->
+                        <xsd:element name="rebate" minOccurs="0" maxOccurs="1">
+                            <xsd:complexType>
+                                <xsd:attribute name="code" type="xsd:string" />
+                                <xsd:attribute name="amount" type="xsd:string" />
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                    <xsd:attribute name="partNum" type="SKU" use="required" />
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <!-- Stock Keeping Unit, a code for identifying products -->
+    <xsd:simpleType name="SKU">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\d{3}-[A-Z]{2}" />
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

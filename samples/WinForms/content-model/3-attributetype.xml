@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<!-- Attribute type determined from element content -->
+<orders xmlns="http://example.com/PO-CMTA">
+
+  <order orderDate="1999-10-20">
+    <items>
+      <item productId="1861007361">
+        <book><!-- Book details. productId must be an ISBN. --></book>
+        <quantity>1</quantity>
+        <USPrice>148.95</USPrice>
+        <rebate amount="15" code="BSD890" />
+      </item>
+
+      <item productId="B00004TDN0">
+        <electronic><!-- Appliance details. productId must be an ASIN. --></electronic>
+        <quantity>1</quantity>
+        <USPrice>70.43</USPrice>
+        <shipDate>2002-11-21</shipDate>
+        <rebate amount="20" code="PJS572" />
+      </item>
+    </items>
+
+  </order>
+</orders>

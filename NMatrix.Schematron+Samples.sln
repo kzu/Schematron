@@ -1,0 +1,45 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinTest", "samples\WinForms\WinTest.csproj", "{D114B53A-FE68-4465-AAE1-14940402B124}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMatrix.Schematron", "src\NMatrix.Schematron.csproj", "{DB7369F1-69CF-4821-98E3-9D6422A7CC36}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples", "samples\Console\Samples.csproj", "{E7CD625E-4ED8-4C5F-8926-7365E96AD02C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchematronWS", "http://localhost/SchematronWS/SchematronWS.csproj", "{1DAC4A02-177C-4052-B953-577279610F11}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D114B53A-FE68-4465-AAE1-14940402B124}.Debug.ActiveCfg = Debug|.NET
+		{D114B53A-FE68-4465-AAE1-14940402B124}.Debug.Build.0 = Debug|.NET
+		{D114B53A-FE68-4465-AAE1-14940402B124}.Release.ActiveCfg = Release|.NET
+		{D114B53A-FE68-4465-AAE1-14940402B124}.Release.Build.0 = Release|.NET
+		{DB7369F1-69CF-4821-98E3-9D6422A7CC36}.Debug.ActiveCfg = Debug|.NET
+		{DB7369F1-69CF-4821-98E3-9D6422A7CC36}.Debug.Build.0 = Debug|.NET
+		{DB7369F1-69CF-4821-98E3-9D6422A7CC36}.Release.ActiveCfg = Release|.NET
+		{DB7369F1-69CF-4821-98E3-9D6422A7CC36}.Release.Build.0 = Release|.NET
+		{E7CD625E-4ED8-4C5F-8926-7365E96AD02C}.Debug.ActiveCfg = Debug|.NET
+		{E7CD625E-4ED8-4C5F-8926-7365E96AD02C}.Debug.Build.0 = Debug|.NET
+		{E7CD625E-4ED8-4C5F-8926-7365E96AD02C}.Release.ActiveCfg = Release|.NET
+		{E7CD625E-4ED8-4C5F-8926-7365E96AD02C}.Release.Build.0 = Release|.NET
+		{1DAC4A02-177C-4052-B953-577279610F11}.Debug.ActiveCfg = Debug|.NET
+		{1DAC4A02-177C-4052-B953-577279610F11}.Debug.Build.0 = Debug|.NET
+		{1DAC4A02-177C-4052-B953-577279610F11}.Release.ActiveCfg = Release|.NET
+		{1DAC4A02-177C-4052-B953-577279610F11}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
