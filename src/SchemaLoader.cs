@@ -165,6 +165,7 @@ namespace NMatrix.Schematron
 			while (rules.MoveNext())
 			{
 				Rule rule = pattern.CreateRule(rules.Current.GetAttribute("context", String.Empty));
+                rule.Id = rules.Current.GetAttribute("id", String.Empty);
 				rule.SetContext(_schema.NsManager);
 				LoadExtends(rule, rules.Current);
 				LoadAsserts(rule, rules.Current);
