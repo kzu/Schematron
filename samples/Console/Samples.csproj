@@ -83,13 +83,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <COMReference Include="MSXML2">
-      <Guid>{F5078F18-C551-11D3-89B9-0000F81FE221}</Guid>
-      <VersionMajor>4</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-    </COMReference>
     <ProjectReference Include="..\..\src\NMatrix.Schematron.csproj">
       <Name>NMatrix.Schematron</Name>
       <Project>{DB7369F1-69CF-4821-98E3-9D6422A7CC36}</Project>
