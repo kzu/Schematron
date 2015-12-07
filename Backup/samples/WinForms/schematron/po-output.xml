@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<output xmlns="http://sourceforge.net/projects/dotnetopensrc/schematron">
+	<schematron>
+	<schema title="Purchase Orders">
+		<ns uri="http://example.com/po-schematron" prefix="po" />
+		<phase>#ALL</phase>
+		<pattern name="Basic Data">
+			<rule context="po:customer">
+				<message>
+					<text>Sex and title have incompatible values.</text>
+					<path>/po:orders[1]/po:customer[1]</path>
+					<summary>&lt;po:customer sex="Female" title="Mr"&gt;...&lt;/&gt;</summary>
+					<position line="3" column="4" />
+				</message>
+			</rule>
+		</pattern>
+	</schema>
+	</schematron>
+	<xml>
+		<xmlSchema targetNamespace="urn" id="XmlFormatter" />
+		<message>
+			<text>Error</text>
+			<position line="3" column="4" />
+		</message>
+	</xml>
+</output>

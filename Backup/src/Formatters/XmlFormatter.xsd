@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="XmlFormatter" targetNamespace="http://sourceforge.net/projects/dotnetopensrc/schematron" elementFormDefault="qualified" xmlns="http://sourceforge.net/projects/dotnetopensrc/schematron" xmlns:mstns="http://sourceforge.net/projects/dotnetopensrc/schematron" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="output">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="xml" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="xmlSchema" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence></xs:sequence>
+									<xs:attribute name="id" type="xs:string" />
+									<xs:attribute name="version" type="xs:string" />
+									<xs:attribute name="targetNamespace" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="message" type="messageDef" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="schematron" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="schema" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="phase" type="xs:string" />
+										<xs:element name="pattern" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="rule" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="message" maxOccurs="unbounded" type="messageDef" />
+															</xs:sequence>
+															<xs:attribute name="context" type="xs:string" use="required" />
+															<xs:attribute name="id" type="xs:string" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="name" type="xs:string" use="required" />
+												<xs:attribute name="id" type="xs:string" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="title" type="xs:string" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="messageDef">
+		<xs:sequence>
+			<xs:element name="text" type="xs:string" />
+			<xs:element name="path" type="xs:string" minOccurs="0" />
+			<xs:element name="summary" type="xs:anyType" minOccurs="0" />
+			<xs:element name="position" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence />
+					<xs:attribute name="line" type="xs:string" use="required" />
+					<xs:attribute name="column" type="xs:string" use="required" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

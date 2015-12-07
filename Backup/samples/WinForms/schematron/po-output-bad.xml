@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-16" ?>
+<output xmlns="http://sourceforge.net/projects/dotnetopensrc/schematron">
+	<xml>
+		<xmlSchema id="" version="" targetNamespace="http://example.com/po-schematron" />
+		<message>
+			<text>Element 'http://example.com/po-schematron:customer' has invalid child element 'http://example.com/po-schematron:p'. Expected 'http://example.com/po-schematron:order'. </text>
+			<position line="6" column="6" />
+		</message>
+		<message>
+			<text>The 'http://example.com/po-schematron:p' element is not declared. </text>
+			<position line="6" column="6" />
+		</message>
+	</xml>
+	<schematron>
+		<schema title="Purchase Orders" xmlns:po="http://example.com/po-schematron">
+			<phase>#ALL</phase>
+			<pattern name="Basic data">
+				<rule context="//po:customer">
+					<message>
+						<text>Sex and title have incompatible values.</text>
+						<path>/po:orders[1]/po:customer[1]</path>
+						<summary>
+	    &lt;:customer sex="Female" title="Mr"&gt;...&lt;/&gt;</summary>
+						<position line="3" column="4" />
+					</message>
+					<message>
+						<text>Either customerId or partnerId must be present.</text>
+						<path>/po:orders[1]/po:customer[1]</path>
+						<summary>
+	    &lt;:customer sex="Female" title="Mr"&gt;...&lt;/&gt;</summary>
+						<position line="3" column="4" />
+					</message>
+				</rule>
+			</pattern>
+			<pattern name="Special Offers">
+				<rule context="//po:order">
+					<message>
+						<text>The total discounted percentage can't be greater than 30%.</text>
+						<path>/po:orders[1]/po:customer[1]/po:order[1]</path>
+						<summary>
+	    &lt;:order orderDate="2002-10-20" orderStatus="Paid" priority="Avg"&gt;...&lt;/&gt;</summary>
+						<position line="7" column="6" />
+					</message>
+				</rule>
+			</pattern>
+		</schema>
+	</schematron>
+</output>

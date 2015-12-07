@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://example.com/PO-CMATV" xmlns="http://example.com/PO-CMATV" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xsd:element name="orders">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="customer" type="customerDef" minOccurs="1" maxOccurs="unbounded" />
+        <xsd:element name="customerDetails" minOccurs="0" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="customer" type="customerDef" minOccurs="0" maxOccurs="unbounded" />
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:complexType name="customerDef">
+    <xsd:sequence>
+      <xsd:element name="fullName" type="xsd:string" minOccurs="0" />
+      <xsd:element name="order" type="orderDef" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:attribute name="ref" type="xsd:string" use="optional" />
+    <xsd:attribute name="sex" type="sexDef" use="optional" />
+    <xsd:attribute name="title" type="titleDef" use="optional" />
+    <xsd:attribute name="customerId" type="xsd:string" use="optional" />
+    <xsd:attribute name="providerId" type="xsd:string" use="optional" />
+  </xsd:complexType>
+
+  <!-- Sex and Title have mutual value dependencies -->
+  <xsd:simpleType name="titleDef">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Mr" />
+      <xsd:enumeration value="Mrs" />
+      <xsd:enumeration value="Miss" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="sexDef">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Male" />
+      <xsd:enumeration value="Female" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="orderDef">
+    <xsd:sequence>
+      <xsd:element name="shipTo" type="USAddressDef" minOccurs="0" />
+      <xsd:element name="billTo" type="USAddressDef" minOccurs="0" />
+      <xsd:element name="items" type="Items" minOccurs="0" />
+    </xsd:sequence>
+    <xsd:attribute name="orderDate" type="xsd:date" />
+  </xsd:complexType>
+  <xsd:complexType name="USAddressDef">
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string" />
+      <xsd:element name="street" type="xsd:string" />
+      <xsd:element name="city" type="xsd:string" />
+      <xsd:element name="state" type="xsd:string" />
+      <xsd:element name="zip" type="xsd:decimal" />
+    </xsd:sequence>
+    <xsd:attribute name="country" type="xsd:NMTOKEN" fixed="US" />
+  </xsd:complexType>
+  <xsd:complexType name="Items">
+    <xsd:sequence>
+      <xsd:element name="item" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="productName" type="xsd:string" />
+            <xsd:element name="quantity">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:positiveInteger">
+                  <xsd:maxExclusive value="100" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="USPrice" type="xsd:decimal" />
+            <xsd:element name="shipDate" type="xsd:date" minOccurs="0" />
+            <xsd:element name="rebate" minOccurs="0" maxOccurs="1">
+              <xsd:complexType>
+                <xsd:sequence>
+                </xsd:sequence>
+                <xsd:attribute name="code" type="xsd:string" />
+                <xsd:attribute name="amount" type="xsd:string" />
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute name="partNum" type="SKU" use="required" />
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Stock Keeping Unit, a code for identifying products -->
+  <xsd:simpleType name="SKU">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{3}-[A-Z]{2}" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

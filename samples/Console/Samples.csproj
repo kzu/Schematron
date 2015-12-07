@@ -1,211 +1,140 @@
-<VisualStudioProject>
-    <CSHARP
-        ProjectType = "Local"
-        ProductVersion = "7.10.3077"
-        SchemaVersion = "2.0"
-        ProjectGuid = "{E7CD625E-4ED8-4C5F-8926-7365E96AD02C}"
-    >
-        <Build>
-            <Settings
-                ApplicationIcon = "App.ico"
-                AssemblyKeyContainerName = ""
-                AssemblyName = "Samples"
-                AssemblyOriginatorKeyFile = ""
-                DefaultClientScript = "JScript"
-                DefaultHTMLPageLayout = "Grid"
-                DefaultTargetSchema = "IE50"
-                DelaySign = "false"
-                OutputType = "Exe"
-                PreBuildEvent = ""
-                PostBuildEvent = ""
-                RootNamespace = "Samples"
-                RunPostBuildEvent = "OnBuildSuccess"
-                StartupObject = ""
-            >
-                <Config
-                    Name = "Debug"
-                    AllowUnsafeBlocks = "false"
-                    BaseAddress = "285212672"
-                    CheckForOverflowUnderflow = "false"
-                    ConfigurationOverrideFile = ""
-                    DefineConstants = "DEBUG;TRACE"
-                    DocumentationFile = ""
-                    DebugSymbols = "true"
-                    FileAlignment = "4096"
-                    IncrementalBuild = "true"
-                    NoStdLib = "false"
-                    NoWarn = ""
-                    Optimize = "false"
-                    OutputPath = "bin\"
-                    RegisterForComInterop = "false"
-                    RemoveIntegerChecks = "false"
-                    TreatWarningsAsErrors = "false"
-                    WarningLevel = "4"
-                />
-                <Config
-                    Name = "Release"
-                    AllowUnsafeBlocks = "false"
-                    BaseAddress = "285212672"
-                    CheckForOverflowUnderflow = "false"
-                    ConfigurationOverrideFile = ""
-                    DefineConstants = "TRACE"
-                    DocumentationFile = ""
-                    DebugSymbols = "false"
-                    FileAlignment = "4096"
-                    IncrementalBuild = "false"
-                    NoStdLib = "false"
-                    NoWarn = ""
-                    Optimize = "true"
-                    OutputPath = "bin\"
-                    RegisterForComInterop = "false"
-                    RemoveIntegerChecks = "false"
-                    TreatWarningsAsErrors = "false"
-                    WarningLevel = "4"
-                />
-            </Settings>
-            <References>
-                <Reference
-                    Name = "System"
-                    AssemblyName = "System"
-                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.0.3705\System.dll"
-                />
-                <Reference
-                    Name = "System.Data"
-                    AssemblyName = "System.Data"
-                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.0.3705\System.Data.dll"
-                />
-                <Reference
-                    Name = "System.XML"
-                    AssemblyName = "System.Xml"
-                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.0.3705\System.XML.dll"
-                />
-                <Reference
-                    Name = "NMatrix.Schematron"
-                    Project = "{DB7369F1-69CF-4821-98E3-9D6422A7CC36}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
-                    Name = "MSXML2"
-                    Guid = "{F5078F18-C551-11D3-89B9-0000F81FE221}"
-                    VersionMajor = "4"
-                    VersionMinor = "0"
-                    Lcid = "0"
-                    WrapperTool = "tlbimp"
-                />
-            </References>
-        </Build>
-        <Files>
-            <Include>
-                <File
-                    RelPath = "App.ico"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "AssemblyInfo.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Benchmarks.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "data.xml"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "Entry.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ExtPhase.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "ExtSchema.cs"
-                    SubType = "Code"
-                    BuildAction = "Compile"
-                />
-                <File
-                    RelPath = "Samples.exe.config"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "Files\diag.xsl"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Files\po.xsd"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Files\po.xsx"
-                    DependentUpon = "po.xsd"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "Files\po-bad.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Files\po-schema.sch"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "Files\po-wxs.xsd"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Files\schematron1-5.sch"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "Files\schematron1-5.xsd"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Files\schematron1-5.xsx"
-                    DependentUpon = "schematron1-5.xsd"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "Files\skeleton1-5.xsl"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Files\Tournament.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Files\Tournament.xsd"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Files\Tournament.xsx"
-                    DependentUpon = "Tournament.xsd"
-                    BuildAction = "None"
-                />
-                <File
-                    RelPath = "Files\tournament-schema.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Files\xsd.xsl"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Files\xslval.xslt"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Files\xt.exe"
-                    BuildAction = "Content"
-                />
-            </Include>
-        </Files>
-    </CSHARP>
-</VisualStudioProject>
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>7.10.3077</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7CD625E-4ED8-4C5F-8926-7365E96AD02C}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName />
+    <AssemblyName>Samples</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Samples</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <COMReference Include="MSXML2">
+      <Guid>{F5078F18-C551-11D3-89B9-0000F81FE221}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+    </COMReference>
+    <ProjectReference Include="..\..\src\NMatrix.Schematron.csproj">
+      <Name>NMatrix.Schematron</Name>
+      <Project>{DB7369F1-69CF-4821-98E3-9D6422A7CC36}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Benchmarks.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExtPhase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExtSchema.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="App.ico" />
+    <Content Include="Files\diag.xsl" />
+    <Content Include="Files\po-bad.xml" />
+    <Content Include="Files\po-wxs.xsd" />
+    <Content Include="Files\po.xsd" />
+    <Content Include="Files\schematron1-5.xsd" />
+    <Content Include="Files\skeleton1-5.xsl" />
+    <Content Include="Files\tournament-schema.xml" />
+    <Content Include="Files\Tournament.xml" />
+    <Content Include="Files\Tournament.xsd" />
+    <Content Include="Files\xsd.xsl" />
+    <Content Include="Files\xslval.xslt" />
+    <Content Include="Files\xt.exe" />
+    <None Include="data.xml" />
+    <None Include="Files\po-schema.sch" />
+    <None Include="Files\po.xsx">
+      <DependentUpon>po.xsd</DependentUpon>
+    </None>
+    <None Include="Files\schematron1-5.sch" />
+    <None Include="Files\schematron1-5.xsx">
+      <DependentUpon>schematron1-5.xsd</DependentUpon>
+    </None>
+    <None Include="Files\Tournament.xsx">
+      <DependentUpon>Tournament.xsd</DependentUpon>
+    </None>
+    <None Include="Samples.exe.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

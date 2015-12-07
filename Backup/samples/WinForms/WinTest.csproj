@@ -1,0 +1,302 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Local"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{D114B53A-FE68-4465-AAE1-14940402B124}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = "App.ico"
+                AssemblyKeyContainerName = ""
+                AssemblyName = "WinTest"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "WinExe"
+                PreBuildEvent = ""
+                PostBuildEvent = ""
+                RootNamespace = "WinTest"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "true"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.0.3705\System.dll"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.0.3705\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.0.3705\System.Drawing.dll"
+                />
+                <Reference
+                    Name = "System.Windows.Forms"
+                    AssemblyName = "System.Windows.Forms"
+                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.0.3705\System.Windows.Forms.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.0.3705\System.XML.dll"
+                />
+                <Reference
+                    Name = "NMatrix.Schematron"
+                    Project = "{DB7369F1-69CF-4821-98E3-9D6422A7CC36}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "System.Web.Services"
+                    AssemblyName = "System.Web.Services"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.Services.dll"
+                />
+                <Reference
+                    Name = "System.Web"
+                    AssemblyName = "System.Web"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.dll"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "App.ico"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Home.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Home.resx"
+                    DependentUpon = "Home.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "schematron1-5.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "schematron1-5.xsx"
+                    DependentUpon = "schematron1-5.xsd"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "co-constraints\1-siblingcontent.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "co-constraints\1-siblingcontent.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "co-constraints\1-siblingcontent.xsx"
+                    DependentUpon = "1-siblingcontent.xsd"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "co-constraints\2-mutualexclusion.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "co-constraints\2-mutualexclusion.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "co-constraints\2-mutualexclusion.xsx"
+                    DependentUpon = "2-mutualexclusion.xsd"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "co-constraints\3-attributevalueexclusion.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "co-constraints\3-attributevalueexclusion.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "co-constraints\3-attributevalueexclusion.xsx"
+                    DependentUpon = "3-attributevalueexclusion.xsd"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "content-model\1-attributepresence.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "content-model\1-attributepresence.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "content-model\1-attributepresence.xsx"
+                    DependentUpon = "1-attributepresence.xsd"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "content-model\2-attributevalue.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "content-model\2-attributevalue.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "content-model\2-attributevalue.xsx"
+                    DependentUpon = "2-attributevalue.xsd"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "content-model\3-attributetype.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "content-model\3-attributetype.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "content-model\3-attributetype.xsx"
+                    DependentUpon = "3-attributetype.xsd"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "schematron\po-instance.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "schematron\po-output.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "schematron\po-output-bad.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "schematron\po-schema.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "schematron\po-schema.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "schematron\po-schema.xsx"
+                    DependentUpon = "po-schema.xsd"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "schematron\po-schema-abstract.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "schematron\po-schema-exslt.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "schematron\po-schema-workflow.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "schematron\Tournament.xml"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "schematron\Tournament.xsd"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "schematron\Tournament.xsx"
+                    DependentUpon = "Tournament.xsd"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Web References\SchematronWS\Reference.map"
+                    BuildAction = "None"
+                    Generator = "MSDiscoCodeGenerator"
+                    LastGenOutput = "Reference.cs"
+                />
+                <File
+                    RelPath = "Web References\SchematronWS\Reference.cs"
+                    DependentUpon = "Reference.map"
+                    SubType = "code"
+                    BuildAction = "Compile"
+                    DesignTime = "True"
+                    AutoGen = "True"
+                />
+                <File
+                    RelPath = "Web References\SchematronWS\ValidatedWS.disco"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Web References\SchematronWS\ValidatedWS.wsdl"
+                    BuildAction = "None"
+                />
+                <Folder
+                    RelPath = "Web References\SchematronWS\"
+                    WebReferenceUrl = "http://localhost/SchematronWS/ValidatedWS.asmx"
+                    UrlBehavior = "Static"
+                />
+                <Folder
+                    RelPath = "Web References\"
+                    WebReferences = "TRUE"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

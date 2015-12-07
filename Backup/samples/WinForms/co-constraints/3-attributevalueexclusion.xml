@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<orders xmlns="http://example.com/PO-AV">
+
+  <customer sex="Male" title="Mr">
+    <!-- Other customer info and order elements. -->
+  </customer>
+
+  <customer sex="Female" title="Mrs">
+    <!-- Other customer info and order elements. -->
+  </customer>
+
+  <customer sex="Female" title="Miss">
+    <!-- Other customer info and order elements. -->
+  </customer>
+</orders>

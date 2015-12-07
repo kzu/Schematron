@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<orders xmlns="http://example.com/PO-ME">
+  <!-- Attribute/Element exclusion -->
+
+  <order customerId="2346" providerId="8644" orderDate="1999-10-20">
+    <customerId>2346</customerId>
+    <providerId>8644</providerId>
+
+    <items>
+      <item partNum="872-AA">
+        <productName>Lawnmower</productName>
+        <quantity>1</quantity>
+        <USPrice>148.95</USPrice>
+        <rebate amount="15" code="BSD890" />
+      </item>
+
+      <item partNum="926-AA">
+        <productName>Baby Monitor</productName>
+        <quantity>1</quantity>
+        <USPrice>39.98</USPrice>
+        <shipDate>1999-05-21</shipDate>
+      </item>
+
+      <item partNum="911-AA">
+        <productName>Alerter Phone</productName>
+        <quantity>2</quantity>
+        <USPrice>70.43</USPrice>
+        <shipDate>1999-05-21</shipDate>
+        <rebate amount="20" code="PJS572" />
+      </item>
+    </items>
+    
+    <shipTo country="US">
+      <name>Alice Smith</name>
+      <street>123 Maple Street</street>
+      <city>Mill Valley</city>
+      <state>CA</state>
+      <zip>90952</zip>
+    </shipTo>
+
+    <billTo country="US">
+      <name>Robert Smith</name>
+      <street>8 Oak Avenue</street>
+      <city>Old Town</city>
+      <state>PA</state>
+      <zip>95819</zip>
+    </billTo>
+    
+  </order>
+</orders>

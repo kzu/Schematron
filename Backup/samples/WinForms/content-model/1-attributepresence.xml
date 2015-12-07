@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<!-- Content model based on attribute presence: ref attribute -->
+<orders xmlns="http://example.com/PO-CMATV">
+  <!--  If ref attribute is present, no other customer details are
+        allowed. Otherwise, all of them are required
+  -->
+
+  <customer sex="Male" title="Mr" customerId="9946">
+    <fullName>Daniel Cazzulino</fullName>
+    <!-- Other customer info and order elements. -->
+  </customer>
+  
+  <customer ref="9945" />
+    <!--  No customer details allowed as it is a reference.
+          Only order elements here.
+     -->  
+  </customer>
+  
+  <customerDetails>
+    <customer sex="Female" title="Mrs" customerId="9945">
+      <fullName>Analia Carvallo</fullName>
+      <!--  Other customer info and order elements. 
+            Would be useful to avoid Order child elements here.
+      -->
+    </customer>
+  </customerDetails>
+
+</orders>
