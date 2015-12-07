@@ -22,8 +22,8 @@ namespace NMatrix.Schematron
 		/// <param name="source"></param>
 		public virtual void LoadSchema(XPathNavigator source)
 		{
-			//_schema.NsManager = new XmlNamespaceManager(source.NameTable);
-			_schema.NsManager = new GotDotNet.Exslt.ExsltContext(source.NameTable);
+			_schema.NsManager = new XmlNamespaceManager(source.NameTable);
+			//_schema.NsManager = new GotDotNet.Exslt.ExsltContext(source.NameTable);
 
 			XPathNodeIterator it = source.Select(CompiledExpressions.Schema);
 			if (it.Count > 1)
