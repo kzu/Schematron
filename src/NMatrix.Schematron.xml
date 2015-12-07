@@ -528,47 +528,47 @@
         </member>
         <member name="M:NMatrix.Schematron.Formatters.FormatterBase.Format(NMatrix.Schematron.Rule,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)">
             <summary>
-            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
+            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Rule,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
         <member name="M:NMatrix.Schematron.Formatters.FormatterBase.Format(NMatrix.Schematron.Pattern,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)">
             <summary>
-            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
+            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Pattern,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
         <member name="M:NMatrix.Schematron.Formatters.FormatterBase.Format(NMatrix.Schematron.Phase,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)">
             <summary>
-            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
+            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Phase,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
         <member name="M:NMatrix.Schematron.Formatters.FormatterBase.Format(NMatrix.Schematron.Schema,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)">
             <summary>
-            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
+            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Schema,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
         <member name="M:NMatrix.Schematron.Formatters.FormatterBase.Format(System.Xml.XmlReader,System.Text.StringBuilder)">
             <summary>
-            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
+            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(System.Xml.XmlReader,System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
         <member name="M:NMatrix.Schematron.Formatters.FormatterBase.Format(System.Xml.Schema.ValidationEventArgs,System.Text.StringBuilder)">
             <summary>
-            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
+            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(System.Xml.Schema.ValidationEventArgs,System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
         <member name="M:NMatrix.Schematron.Formatters.FormatterBase.Format(System.Xml.Schema.XmlSchemaSet,System.Text.StringBuilder)">
             <summary>
-            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
+            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(System.Xml.Schema.XmlSchemaSet,System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
         <member name="M:NMatrix.Schematron.Formatters.FormatterBase.Format(NMatrix.Schematron.SchemaCollection,System.Text.StringBuilder)">
             <summary>
-            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
+            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.SchemaCollection,System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
         <member name="M:NMatrix.Schematron.Formatters.FormatterBase.Format(System.Text.StringBuilder)">
             <summary>
-            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
+            Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
         <member name="M:NMatrix.Schematron.Formatters.BooleanFormatter.#ctor">
