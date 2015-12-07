@@ -36,14 +36,14 @@ namespace Test
 			Schema sch = new Schema();
 			sch.Load(@"..\Files\tournament-schema.xml");
 
-			XslTransform meta = new XslTransform();
+			XslCompiledTransform meta = new XslCompiledTransform();
 			meta.Load(@"..\Files\diag.xsl");
 			MemoryStream mem = new MemoryStream();
 			XmlTextWriter xw = new XmlTextWriter(mem, System.Text.Encoding.UTF8);           
 			meta.Transform(new XPathDocument(@"..\Files\tournament-schema.xml"), null, xw);
 
 			mem.Seek(0, SeekOrigin.Begin);
-			XslTransform xsh = new XslTransform();
+			XslCompiledTransform xsh = new XslCompiledTransform();
 			xsh.Load(new XPathDocument(mem));
  
 			XPathNavigator nav = doc.CreateNavigator();
@@ -124,7 +124,7 @@ namespace Test
             Schema sch = new Schema();
             sch.Load(@"..\Files\schematron1-5.sch");
 
-            XslTransform meta = new XslTransform();
+            XslCompiledTransform meta = new XslCompiledTransform();
             meta.Load(@"..\Files\diag.xsl");
             MemoryStream mem = new MemoryStream();
             XmlTextWriter xw = new XmlTextWriter(mem, System.Text.Encoding.UTF8);
@@ -135,7 +135,7 @@ namespace Test
 			xsldoc.Load(mem);
 			mem.Close();
 
-            XslTransform xsh = new XslTransform();
+            XslCompiledTransform xsh = new XslCompiledTransform();
             xsh.Load(xsldoc);
  
             XPathNavigator nav = doc.CreateNavigator();
@@ -243,12 +243,12 @@ namespace Test
 			//Console.WriteLine(new String('-', 60));
 
 			//Metastylesheets preloaded (test loading these too)
-			XslTransform xsd = new XslTransform();
+			XslCompiledTransform xsd = new XslCompiledTransform();
 			xsd.Load(@"..\Files\xsd.xsl");
-			XslTransform meta = new XslTransform();
+			XslCompiledTransform meta = new XslCompiledTransform();
 			meta.Load(@"..\Files\diag.xsl");
 
-			XslTransform xsh = null;
+			XslCompiledTransform xsh = null;
 
 			long start;
 			long end;
@@ -272,7 +272,7 @@ namespace Test
 					meta.Transform(new XPathDocument(mem), null, ms);
 					
 					ms.Seek(0, SeekOrigin.Begin);
-					xsh = new XslTransform();
+					xsh = new XslCompiledTransform();
 					xsh.Load(new XPathDocument(ms));
 				}
 			}
@@ -368,7 +368,7 @@ namespace Test
 			//Console.WriteLine(new string('-', 20) + " StandaloneSchemaLoading " + new string('-', 20));
 			//Console.WriteLine(new String('-', 60));
 
-			XslTransform meta = new XslTransform();
+			XslCompiledTransform meta = new XslCompiledTransform();
 			meta.Load(@"..\Files\diag.xsl");
  
 			long start;
@@ -383,7 +383,7 @@ namespace Test
 				meta.Transform(new XPathDocument(@"..\Files\schematron1-5.sch"), null, xw);
 
 				mem.Seek(0, SeekOrigin.Begin);
-				XslTransform xsh = new XslTransform();
+				XslCompiledTransform xsh = new XslCompiledTransform();
 				xsh.Load(new XPathDocument(mem));
 			}
 			end = DateTime.Now.Ticks;
