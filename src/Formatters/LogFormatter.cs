@@ -131,7 +131,7 @@ namespace NMatrix.Schematron.Formatters
 		/// <summary>
 		/// Look at <see cref="IFormatter.Format"/> documentation.
 		/// </summary>
-		public override void Format(XmlSchemaCollection schemas, StringBuilder output)
+		public override void Format(XmlSchemaSet schemas, StringBuilder output)
 		{
 			output.Insert(0, "Results from XML Schema validation:\r\n");
 			output.Append("\r\n");

@@ -95,7 +95,7 @@ namespace NMatrix.Schematron.Formatters
         /// </remarks>
         /// <param name="output">The message to output.</param>
         /// <param name="reader">The reader in use to validate the schema.</param>
-        void Format(XmlValidatingReader reader, StringBuilder output);
+        void Format(XmlReader reader, StringBuilder output);
 			
         /// <summary>
         /// Formats the output of XmlSchema validation.
@@ -117,7 +117,7 @@ namespace NMatrix.Schematron.Formatters
         /// </remarks>
         /// <param name="output">The message to output.</param>
         /// <param name="schemas">The collection of schemas in use for validation.</param>
-        void Format(XmlSchemaCollection schemas, StringBuilder output);
+        void Format(XmlSchemaSet schemas, StringBuilder output);
 
 		/// <summary>
 		/// Enclosing message for all schemas being validated.

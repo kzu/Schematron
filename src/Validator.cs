@@ -23,7 +23,7 @@ namespace NMatrix.Schematron
 	{
 		#region Fields & Ctors
 
-		XmlSchemaCollection _xmlschemas = new XmlSchemaCollection();
+		XmlSchemaSet _xmlschemas = new XmlSchemaSet();
 		SchemaCollection _schematrons = new SchemaCollection();
 		EvaluationContextBase _evaluationctx;
 		NavigableType _navtype = NavigableType.XPathDocument;
@@ -162,7 +162,7 @@ namespace NMatrix.Schematron
 		/// <summary>
 		/// Exposes the XML schemas to use for validation.
 		/// </summary>
-		public XmlSchemaCollection XmlSchemas
+		public XmlSchemaSet XmlSchemas
 		{
 			get { return _xmlschemas; }
 		}
@@ -189,7 +189,7 @@ namespace NMatrix.Schematron
 		/// <summary>
 		/// Adds a set of XML Schemas to the collection to use for validation.
 		/// </summary>
-		public void AddSchemas(XmlSchemaCollection schemas)
+		public void AddSchemas(XmlSchemaSet schemas)
 		{
 			_xmlschemas.Add(schemas);
 		}
@@ -244,13 +244,22 @@ namespace NMatrix.Schematron
 			// The whole schema must be read first to preserve the state for later.
 			string state = reader.ReadOuterXml();
 			StringReader r = new StringReader(state);
-
+            
 			if (wxs)
 			{
 				_haserrors = false;
 				_errors = new StringBuilder();
-				XmlSchema xs = XmlSchema.Read(new XmlTextReader(r, reader.NameTable), new ValidationEventHandler(OnValidation));
-				if (!xs.IsCompiled) xs.Compile(new ValidationEventHandler(OnValidation));
+
+                var xs = XmlSchema.Read(new XmlTextReader(r, reader.NameTable), new ValidationEventHandler(OnValidation));
+                
+                var set = new XmlSchemaSet();
+                set.Add(xs);
+
+				if(!set.IsCompiled)
+                {
+                    set.Compile();
+                }
+
 				if (_haserrors) throw new BadSchemaException(_errors.ToString());
 
 				_xmlschemas.Add(xs);
@@ -383,12 +392,19 @@ namespace NMatrix.Schematron
 				bool hassch = false;
 				StringBuilder scherrors = null;
 
-				XmlValidatingReader r = new XmlValidatingReader(reader);
-				foreach (XmlSchema xsd in _xmlschemas)
+                var settings = new XmlReaderSettings()
+                {
+                    ValidationType = ValidationType.Schema,                    
+                };                
+                settings.ValidationEventHandler += new ValidationEventHandler(OnValidation);
+
+                foreach (XmlSchema xsd in _xmlschemas.Schemas())
 				{
-					r.Schemas.Add(xsd);
+					settings.Schemas.Add(xsd);
 				}
-				r.ValidationEventHandler += new ValidationEventHandler(OnValidation);
+
+				var r = XmlReader.Create(reader, settings);
+								
 				
 				IXPathNavigable navdoc;
 				XPathNavigator nav;
@@ -407,7 +423,7 @@ namespace NMatrix.Schematron
 
 				if (_haserrors)
 				{
-                    _evaluationctx.Formatter.Format(r.Schemas, _errors);
+                    _evaluationctx.Formatter.Format(r.Settings.Schemas, _errors);
 					_evaluationctx.Formatter.Format(r, _errors);
 					hasxml = true;
 					xmlerrors = _errors;

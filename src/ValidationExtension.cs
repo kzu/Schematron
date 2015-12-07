@@ -87,7 +87,7 @@ namespace NMatrix.Schematron
 			public Assembly SchemaAssembly;
 			public ValidationAttribute Validation;
 			public SchemaCollection SchematronSchemas =  new SchemaCollection();
-			public XmlSchemaCollection XmlSchemas = new XmlSchemaCollection();
+			public XmlSchemaSet XmlSchemas = new XmlSchemaSet();
 			public Formatters.IFormatter Formatter;
 			public ExtensionInitializer(Assembly schemaAssembly, ValidationAttribute validation)
 			{

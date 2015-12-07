@@ -195,12 +195,12 @@ namespace NMatrix.Schematron.Formatters
 		/// <summary>
 		/// Look at <see cref="IFormatter.Format"/> documentation.
 		/// </summary>
-		public override void Format(XmlSchemaCollection schemas, StringBuilder output)
+		public override void Format(XmlSchemaSet schemas, StringBuilder output)
 		{
 			StringBuilder sb = new StringBuilder();
 			XmlTextWriter writer = new XmlTextWriter(new StringWriter(sb));
 
-			foreach (XmlSchema sch in schemas)
+			foreach (XmlSchema sch in schemas.Schemas())
 			{
 				writer.WriteStartElement("xmlSchema");
 				writer.WriteAttributeString("id", sch.Id);
@@ -225,7 +225,7 @@ namespace NMatrix.Schematron.Formatters
 		/// <summary>
 		/// Look at <see cref="IFormatter.Format"/> documentation.
 		/// </summary>
-		public override void Format(XmlValidatingReader reader, StringBuilder output)
+		public override void Format(XmlReader reader, StringBuilder output)
 		{
 			// Enclose messages in an <xml> element.
 			output.Insert(0, "<xml>");

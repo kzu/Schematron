@@ -54,7 +54,7 @@ namespace NMatrix.Schematron.Formatters
         /// <summary>
         /// Look at <see cref="IFormatter.Format"/> documentation.
         /// </summary>
-        public virtual void Format(XmlValidatingReader reader, StringBuilder output)
+        public virtual void Format(XmlReader reader, StringBuilder output)
         {
         }
 			
@@ -68,7 +68,7 @@ namespace NMatrix.Schematron.Formatters
 		/// <summary>
 		/// Look at <see cref="IFormatter.Format"/> documentation.
 		/// </summary>
-		public virtual void Format(XmlSchemaCollection schemas, StringBuilder output)
+		public virtual void Format(XmlSchemaSet schemas, StringBuilder output)
 		{
 		}
 

@@ -460,7 +460,7 @@
             <param name="output">The message to output.</param>
             <param name="source">The <see cref="T:NMatrix.Schematron.Schema"/> being evaluated.</param>
         </member>
-        <member name="M:NMatrix.Schematron.Formatters.IFormatter.Format(System.Xml.XmlValidatingReader,System.Text.StringBuilder)">
+        <member name="M:NMatrix.Schematron.Formatters.IFormatter.Format(System.Xml.XmlReader,System.Text.StringBuilder)">
             <summary>
             Provides formatting for a <see cref="T:System.Xml.Schema.XmlSchema"/> element being validated 
             through a <see cref="T:System.Xml.XmlValidatingReader"/>.
@@ -484,7 +484,7 @@
             <param name="source">The argument received by the <see cref="T:System.Xml.Schema.ValidationEventHandler"/> handler
             during XmlSchema validation.</param>
         </member>
-        <member name="M:NMatrix.Schematron.Formatters.IFormatter.Format(System.Xml.Schema.XmlSchemaCollection,System.Text.StringBuilder)">
+        <member name="M:NMatrix.Schematron.Formatters.IFormatter.Format(System.Xml.Schema.XmlSchemaSet,System.Text.StringBuilder)">
             <summary>
             Enclosing message for all schemas being validated.
             </summary>
@@ -546,7 +546,7 @@
             Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
-        <member name="M:NMatrix.Schematron.Formatters.FormatterBase.Format(System.Xml.XmlValidatingReader,System.Text.StringBuilder)">
+        <member name="M:NMatrix.Schematron.Formatters.FormatterBase.Format(System.Xml.XmlReader,System.Text.StringBuilder)">
             <summary>
             Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
@@ -556,7 +556,7 @@
             Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
-        <member name="M:NMatrix.Schematron.Formatters.FormatterBase.Format(System.Xml.Schema.XmlSchemaCollection,System.Text.StringBuilder)">
+        <member name="M:NMatrix.Schematron.Formatters.FormatterBase.Format(System.Xml.Schema.XmlSchemaSet,System.Text.StringBuilder)">
             <summary>
             Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
@@ -662,7 +662,7 @@
             Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
-        <member name="M:NMatrix.Schematron.Formatters.LogFormatter.Format(System.Xml.Schema.XmlSchemaCollection,System.Text.StringBuilder)">
+        <member name="M:NMatrix.Schematron.Formatters.LogFormatter.Format(System.Xml.Schema.XmlSchemaSet,System.Text.StringBuilder)">
             <summary>
             Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
@@ -732,7 +732,7 @@
             Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
-        <member name="M:NMatrix.Schematron.Formatters.XmlFormatter.Format(System.Xml.Schema.XmlSchemaCollection,System.Text.StringBuilder)">
+        <member name="M:NMatrix.Schematron.Formatters.XmlFormatter.Format(System.Xml.Schema.XmlSchemaSet,System.Text.StringBuilder)">
             <summary>
             Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
@@ -742,7 +742,7 @@
             Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
         </member>
-        <member name="M:NMatrix.Schematron.Formatters.XmlFormatter.Format(System.Xml.XmlValidatingReader,System.Text.StringBuilder)">
+        <member name="M:NMatrix.Schematron.Formatters.XmlFormatter.Format(System.Xml.XmlReader,System.Text.StringBuilder)">
             <summary>
             Look at <see cref="M:NMatrix.Schematron.Formatters.IFormatter.Format(NMatrix.Schematron.Test,System.Xml.XPath.XPathNavigator,System.Text.StringBuilder)"/> documentation.
             </summary>
@@ -1707,7 +1707,7 @@
             Adds a Schematron schema to the collection to use for validation.
             </summary>
         </member>
-        <member name="M:NMatrix.Schematron.Validator.AddSchemas(System.Xml.Schema.XmlSchemaCollection)">
+        <member name="M:NMatrix.Schematron.Validator.AddSchemas(System.Xml.Schema.XmlSchemaSet)">
             <summary>
             Adds a set of XML Schemas to the collection to use for validation.
             </summary>
