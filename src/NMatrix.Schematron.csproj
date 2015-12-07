@@ -193,6 +193,7 @@
     <Compile Include="SchemaLoader.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Serialization\SchematronTempObjectModel.cs" />
     <Compile Include="StartDelegate.cs">
       <SubType>Code</SubType>
     </Compile>
