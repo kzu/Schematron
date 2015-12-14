@@ -12,12 +12,12 @@ IF NOT EXIST %LocalAppData%\NuGet md %LocalAppData%\NuGet
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://www.nuget.org/nuget.exe' -OutFile '%CACHED_NUGET%'"
 
 :copynuget
-IF EXIST .nuget\nuget.exe goto restore
-md .nuget
-copy %CACHED_NUGET% .nuget\nuget.exe > nul
+IF EXIST src\.nuget\nuget.exe goto restore
+md src\.nuget
+copy %CACHED_NUGET% src\.nuget\nuget.exe > nul
 
 :restore
-.nuget\NuGet.exe install build\packages.config -OutputDirectory .nuget\packages -ExcludeVersion
+src\.nuget\NuGet.exe install build\packages.config -OutputDirectory build\packages -ExcludeVersion
 
 :run
 msbuild build.proj /v:detailed %1 %2 %3 %4 %5 %6 %7 %8 %9

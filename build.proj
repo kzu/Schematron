@@ -7,7 +7,6 @@
 		<Out Condition=" '$(Out)' == '' ">$([System.IO.Path]::Combine($(MSBuildThisFileDirectory), 'out'))</Out>
 		<GitInfoReportImportance>high</GitInfoReportImportance>
 		<GitVersionFile>VERSION</GitVersionFile>
-		<NuGetPath>$(MSBuildThisFileDirectory).nuget</NuGetPath>
 	</PropertyGroup>
 
 	<Target Name="Clean">
@@ -59,11 +58,11 @@
 			   ContinueOnError="ErrorAndContinue"/>
 	</Target>
 	
-	<Import Project="build\NuGet.Restore.targets" />
+	<Import Project="src\NuGet.Restore.targets" />
 
 	<!-- Setup/Configure/Restore -->
 	<PropertyGroup>
-		<PackagesDir>.nuget\packages\</PackagesDir>
+		<PackagesDir>build\packages\</PackagesDir>
 		<XunitBuildDir>$(PackagesDir)xunit.runner.msbuild\build</XunitBuildDir>
 		<!-- Xunit evolves by adding/tweaking platforms, so this makes it resilient to that -->
 		<XunitPlatformDir Condition=" Exists('$(XunitBuildDir)') ">$([System.IO.Directory]::GetDirectories($(XunitBuildDir))[0])</XunitPlatformDir>
@@ -77,7 +76,7 @@
 
 	<Target Name="Configure" DependsOnTargets="_GetNuGet"  Condition=" '$(PendingRestore)' == 'true' ">
 		<!-- We always run NuGet Install since it already checks for already-installed packages and skips them -->
-		<Exec Command='"$(NuGet)" Install "build\packages.config" -OutputDirectory ".nuget\packages" -ExcludeVersion' />
+		<Exec Command='"$(NuGet)" Install "build\packages.config" -OutputDirectory "build\packages" -ExcludeVersion' />
 		<!-- The Wrench build script will pass the Target property as Configure on the configure step, and therefore will properly skip the error -->
 		<Error Text="Build-time packages were missing and were just restored. Please run the build again." Condition=" '$(Target)' != 'Configure' " />
 	</Target>
