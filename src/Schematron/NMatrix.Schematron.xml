@@ -1666,70 +1666,6 @@
         <member name="M:Schematron.TestCollection.Remove(Schematron.Test)">
             <summary></summary>
         </member>
-        <member name="T:Schematron.ValidationAttribute">
-            <summary>
-            Attribute applied to webmethods that require Schematron validation.
-            </summary>
-        </member>
-        <member name="M:Schematron.ValidationAttribute.#ctor(System.String)">
-            <summary>
-            Initializes the attribute for a certain schema.
-            </summary>
-            <param name="schema">The schema to validate the webmethod with.</param>
-        </member>
-        <member name="M:Schematron.ValidationAttribute.#ctor(System.String[])">
-            <summary>
-            Initializes the attribute for a certain schema.
-            </summary>
-            <param name="schemas">The set of schemas to validate the webmethod with.</param>
-        </member>
-        <member name="M:Schematron.ValidationAttribute.#ctor(System.String,Schematron.OutputFormatting)">
-            <summary>
-            Initializes the attribute for a certain schema.
-            </summary>
-            <param name="schema">The schema to validate the webmethod with.</param>
-            <param name="formatting">The formatting to use for the validation output.</param>
-        </member>
-        <member name="M:Schematron.ValidationAttribute.#ctor(System.String[],Schematron.OutputFormatting)">
-            <summary>
-            Initializes the attribute for a certain schema.
-            </summary>
-            <param name="schemas">The set of schemas to validate the webmethod with.</param>
-            <param name="formatting">The formatting to use for the validation output.</param>
-        </member>
-        <member name="P:Schematron.ValidationAttribute.Schemas">
-            <summary>
-            Gets the location of the schemas to use.
-            </summary>
-        </member>
-        <member name="P:Schematron.ValidationAttribute.Phase">
-            <summary>
-            Gets/Sets the phase to use for validation.
-            </summary>
-        </member>
-        <member name="P:Schematron.ValidationAttribute.Formatting">
-            <summary>
-            Gets/Sets the formatting to use for validation errors.
-            </summary>
-        </member>
-        <member name="P:Schematron.ValidationAttribute.FormattingType">
-            <summary>
-            Gets/Sets a type that implements <see cref="T:Schematron.Formatters.IFormatter"/> to use 
-            to format error messages. If set, this property takes precedence 
-            over <see cref="P:Schematron.ValidationAttribute.Formatting"/>.
-            </summary>
-        </member>
-        <member name="P:Schematron.ValidationAttribute.ExtensionType">
-            <summary>
-            Gets the type of this extension attribute, which is always 
-            <see cref="T:Schematron.ValidationExtension"/>.
-            </summary>
-        </member>
-        <member name="P:Schematron.ValidationAttribute.Priority">
-            <summary>
-            Gets/Sets the priority of the extension.
-            </summary>
-        </member>
         <member name="T:Schematron.ValidationException">
             <summary>
             Represents the an error in the Schematron schema.
@@ -1761,11 +1697,6 @@
             </summary>
             <param name="message">The error message that explains the reason for the exception.</param>
             <param name="innerException">The exception that is the cause of the current exception.</param>
-        </member>
-        <member name="T:Schematron.ValidationExtension">
-            <summary>
-            Extension that allows Schematron validation on webmethods.
-            </summary>
         </member>
         <member name="T:Schematron.Validator">
             <summary>

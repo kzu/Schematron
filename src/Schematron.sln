@@ -1,13 +1,17 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schematron", "src\Schematron.csproj", "{DB7369F1-69CF-4821-98E3-9D6422A7CC36}"
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schematron", "Schematron\Schematron.csproj", "{DB7369F1-69CF-4821-98E3-9D6422A7CC36}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{CEE7139C-CEDE-4967-825B-CC6DC0188685}"
 	ProjectSection(SolutionItems) = preProject
-		doc\Findings.doc = doc\Findings.doc
-		doc\Schematron.xml = doc\Schematron.xml
-		doc\Notes.txt = doc\Notes.txt
+		..\doc\Findings.doc = ..\doc\Findings.doc
+		..\doc\Notes.txt = ..\doc\Notes.txt
+		..\doc\Schematron.xml = ..\doc\Schematron.xml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schematron.WebServices", "Schematron.WebServices\Schematron.WebServices.csproj", "{D55599AF-DA8B-4FFE-8F99-C2A2DCEE45EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +23,10 @@ Global
 		{DB7369F1-69CF-4821-98E3-9D6422A7CC36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB7369F1-69CF-4821-98E3-9D6422A7CC36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB7369F1-69CF-4821-98E3-9D6422A7CC36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D55599AF-DA8B-4FFE-8F99-C2A2DCEE45EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D55599AF-DA8B-4FFE-8F99-C2A2DCEE45EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D55599AF-DA8B-4FFE-8F99-C2A2DCEE45EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D55599AF-DA8B-4FFE-8F99-C2A2DCEE45EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
