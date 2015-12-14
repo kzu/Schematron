@@ -1,3 +1,7 @@
-﻿This project is part of the NMatrix initiative. We created a Schematron processor for .NET, written in C#. Look at the project HomePage (http://sourceforge.net/projects/schematron-net/). 
+﻿This is a [Schematron ISO/IEC standard](http://www.schematron.com/) processor for .NET, written in C# and was part of a former NMatrix initiative.
 
-Releases are still made through the NMatrix project: http://sourceforge.net/projects/dotnetopensrc
+For internal Sky use we cleaned up a bit and removed dependencies from obsolete libraries and framework facilities.
+
+
+### REMARKS
+This project was forked from [Schematron.NET](http://sourceforge.net/projects/schematron-net/) @ sourceforge
