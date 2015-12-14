@@ -4,14 +4,6 @@
         <name>NMatrix.Schematron</name>
     </assembly>
     <members>
-        <member name="T:ThisAssembly">
-            <summary>
-            Contains assembly level documentation.
-            </summary>
-            <license>MPL1.1</license>
-            <author id="dcazzulino" name="Daniel Cazzulino" email="nmatrixdotnet@msn.com">Project starter.</author>
-            <link id="schematron" url="http://www.ascc.net/xml/resource/schematron/schematron2000.html">Schematron Specification</link>
-        </member>
         <member name="T:NMatrix.Schematron.Assert">
             <summary>
             Represents an assert element of the Schematron schema.
