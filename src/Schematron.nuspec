@@ -1,13 +1,17 @@
 <?xml version="1.0"?>
 <package >
-  <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
-    <iconUrl>http://ki.skystore.bskyb.com/nuget/skystore-assets/sky_store_logo_64.png</iconUrl>
-    <description>$description$</description>
-    <copyright>$copyright$</copyright>
-  </metadata>
+	<metadata>
+		<id>$id$</id>
+		<version>$version$</version>
+		<title>Schematron.NET: a C# high-performance implementation of Schematron ISO/IEC standard</title>
+		<authors>Daniel Cazzulino</authors>
+		<owners>kzu</owners>
+		<description>A C# high-performance implementation of Schematron ISO/IEC standard</description>
+		<copyright>2015 © Daniel Cazzulino</copyright>
+	</metadata>
+	<files>
+		<file src="bin\$configuration$\$id$.dll" target="lib\net40" />
+		<file src="bin\$configuration$\$id$.pdb" target="lib\net40" />
+		<file src="bin\$configuration$\$id$.xml" target="lib\net40" />
+	</files>
 </package>

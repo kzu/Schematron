@@ -1,6 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 
-[assembly: AssemblyTitle("NMatrix Schematron.NET")]
-[assembly: AssemblyDescription("A native .NET implementation of Schematron.")]
-[assembly: AssemblyDelaySign(false)]
+[assembly: AssemblyTitle("Schematron.NET")]
+[assembly: AssemblyDescription("A C# native .NET implementation of the Schematron ISO/IEC standard")]

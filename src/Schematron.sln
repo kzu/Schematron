@@ -13,6 +13,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{CEE7139C-CED
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schematron.WebServices", "Schematron.WebServices\Schematron.WebServices.csproj", "{D55599AF-DA8B-4FFE-8F99-C2A2DCEE45EC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{494E6692-1CC3-4DBE-BF35-09E356E52608}"
+	ProjectSection(SolutionItems) = preProject
+		..\build.cmd = ..\build.cmd
+		..\build.proj = ..\build.proj
+		Schematron.nuspec = Schematron.nuspec
+		..\VERSION = ..\VERSION
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
