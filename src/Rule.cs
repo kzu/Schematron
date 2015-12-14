@@ -5,21 +5,21 @@ using System.Collections;
 using System.Text;
 using System.Runtime.Remoting.Messaging;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// A Rule element.
 	/// </summary>
 	/// <remarks>
-	/// Rules enclose the <see cref="Assert"/> and <see cref="Report"/> 
-	/// elements, providing the context for their evaluation. 
+	/// Rules enclose the <see cref="Assert"/> and <see cref="Report"/>
+	/// elements, providing the context for their evaluation.
 	/// According to the <link ref="schematron" />, nodes can be evaluated
-	/// by only one rule inside a <see cref="Pattern"/>, so typical schema 
-	/// design includes placing the most exceptional rules first, down to 
+	/// by only one rule inside a <see cref="Pattern"/>, so typical schema
+	/// design includes placing the most exceptional rules first, down to
 	/// more generally applicable ones.
 	/// <para>
 	/// Constructor is not public. To programatically create an instance of this
-	/// class use the <see cref="Pattern.CreateRule"/> factory method.
+	/// class use the <see cref="Pattern.CreateRule(string)"/> factory method.
 	/// </para>
 	/// </remarks>
 	/// <author ref="dcazzulino">
@@ -41,7 +41,7 @@ namespace NMatrix.Schematron
 		internal protected Rule()
 		{
 		}
-		
+
 		/// <summary>Initializes a new instance of the class, with the received context.</summary>
 		/// <param name="context">The rule's context to evaluate.</param>
 		/// <remarks>If passed a null or an <see cref="String.Empty"/>, this is implicitly an abstract rule.</remarks>
@@ -56,7 +56,7 @@ namespace NMatrix.Schematron
 		/// If passed a null or an <see cref="String.Empty"/>, this is implicitly an abstract rule.
 		/// </remarks>
 		/// <author ref="dcazzulino">
-		/// Rules are evaluated through all the document (//), unless they 
+		/// Rules are evaluated through all the document (//), unless they
 		/// explicitly want to start from the root (/). This is consistent
 		/// with XSLT template match behavior. So we have to split the expression
 		/// per union (|) to add the root expression in these cases.
@@ -70,7 +70,7 @@ namespace NMatrix.Schematron
 			}
 
 
-			// Rules are evaluated through all the document (//), unless they 
+			// Rules are evaluated through all the document (//), unless they
 			// explicitly want to start from the root (/).
 			// We have to split per union (|) to add the root expression.
 			string[] parts = context.Split('|');
@@ -97,7 +97,7 @@ namespace NMatrix.Schematron
 		/// of their own assert implementations.
 		/// </remarks>
 		/// <param name="test">
-		/// The XPath expression to test for the assert. See 
+		/// The XPath expression to test for the assert. See
 		/// <see cref="EvaluableExpression.Expression"/>.
 		/// </param>
 		/// <param name="message">
@@ -115,7 +115,7 @@ namespace NMatrix.Schematron
 		/// of their own report implementations.
 		/// </remarks>
 		/// <param name="test">
-		/// The XPath expression to test for the report. See 
+		/// The XPath expression to test for the report. See
 		/// <see cref="EvaluableExpression.Expression"/>.
 		/// </param>
 		/// <param name="message">
@@ -179,7 +179,7 @@ namespace NMatrix.Schematron
 		{
 			if (!parent.IsAbstract)
 				throw new ArgumentException("The rule to extend must be abstract.", "parent");
-			
+
 			foreach (Assert asr in parent._asserts)
 				_asserts.Add(asr);
 

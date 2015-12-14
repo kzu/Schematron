@@ -1,7 +1,7 @@
 using System;
 using System.Web.Services.Protocols;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// Attribute applied to webmethods that require Schematron validation.

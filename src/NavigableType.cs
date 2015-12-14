@@ -1,6 +1,6 @@
 using System;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// Return type to use as the validation result.

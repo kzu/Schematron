@@ -1,12 +1,12 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// The exception that is thrown when an invalid XPath expression is used.
 	/// </summary>
-	/// <author ref="dcazzulino" />
+	/// <author ref="kzu" />
 	/// <progress amount="100" />
 	public class InvalidExpressionException : ApplicationException
 	{
@@ -14,7 +14,7 @@ namespace NMatrix.Schematron
 		public InvalidExpressionException() : base()
 		{
 		}
-		
+
 		/// <summary>
 		/// Initializes an instance of the class with a specified error message.
 		/// </summary>
@@ -22,7 +22,7 @@ namespace NMatrix.Schematron
 		public InvalidExpressionException(string message) : base(message)
 		{
 		}
-		
+
 		/// <summary>
 		/// For serialization purposes.
 		/// </summary>
@@ -32,7 +32,7 @@ namespace NMatrix.Schematron
 			base(info, context)
 		{
 		}
-		
+
 		/// <summary>
 		/// Initializes an instance of the class with a specified error message
 		/// and a reference to the inner exception that is the cause for this exception.

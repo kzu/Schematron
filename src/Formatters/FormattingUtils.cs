@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.XPath;
 
-namespace NMatrix.Schematron.Formatters
+namespace Schematron.Formatters
 {
 	/// <summary />
 	public class FormattingUtils
@@ -17,7 +17,7 @@ namespace NMatrix.Schematron.Formatters
 		static FormattingUtils()
 		{
 			_normalize = new Regex(@"\s+", RegexOptions.Compiled);
-			_removeprefix = new Regex(" .*", RegexOptions.Compiled); 
+			_removeprefix = new Regex(" .*", RegexOptions.Compiled);
 
 			//Mangle message for xml validation errors to locate the position in the error message.
 			ResourceManager m = new ResourceManager("System.XML", typeof(System.Xml.Schema.XmlSchema).Assembly);
@@ -51,7 +51,7 @@ namespace NMatrix.Schematron.Formatters
 		{
 			string curr = context.Name;
 			string pref = String.Empty;
-			
+
 			if (context.NamespaceURI != String.Empty)
 			{
 				if (context.Prefix == String.Empty)
@@ -67,7 +67,7 @@ namespace NMatrix.Schematron.Formatters
 				{
 					namespaces.Add(context.NamespaceURI, pref != null ? pref : "");
 				}
-				else if (((String)namespaces[context.NamespaceURI]) != pref && 
+				else if (((String)namespaces[context.NamespaceURI]) != pref &&
 					!namespaces.ContainsKey(context.NamespaceURI + ":" + pref))
 				{
 					namespaces.Add(context.NamespaceURI + " " + pref, pref);
@@ -75,7 +75,7 @@ namespace NMatrix.Schematron.Formatters
 			}
 
 			int sibs = 1;
-			
+
 			while (context.MoveToPrevious())
 				if (context.Name == curr) sibs++;
 
@@ -124,7 +124,7 @@ namespace NMatrix.Schematron.Formatters
 		/// Returns abreviated node information, including attribute values.
 		/// </summary>
 		/// <remarks>
-		/// The namespaces param is optionally filled in <see cref="GetFullNodePosition"/>.
+		/// The namespaces param is optionally filled in <see cref="GetFullNodePosition(XPathNavigator, string, Test, Hashtable)"/>.
 		/// </remarks>
 		public static string GetNodeSummary(XPathNavigator context, Hashtable namespaces, string spacing)
 		{
@@ -172,7 +172,7 @@ namespace NMatrix.Schematron.Formatters
 				pref = namespaces[key].ToString();
 
 				if (pref != String.Empty)
-					sb.Append(":").Append(namespaces[key]);				
+					sb.Append(":").Append(namespaces[key]);
 
 				sb.Append("=\"");
 
@@ -180,7 +180,7 @@ namespace NMatrix.Schematron.Formatters
 					sb.Append(_removeprefix.Replace(key.ToString(), String.Empty));
 				else
 					sb.Append(key);
-				
+
 				sb.Append("\" ");
 			}
 

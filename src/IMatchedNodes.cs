@@ -2,7 +2,7 @@ using System;
 using System.Xml;
 using System.Xml.XPath;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// Defines the common interface used by the different node-matching strategies.
@@ -10,17 +10,17 @@ namespace NMatrix.Schematron
 	/// <remarks>
 	/// As different <see cref="XPathNavigator"/> can exist, and even be developed
 	/// in the future, we have to take into account that the data store can change.
-	/// So in order to be efficient at keeping nodes matched so far, to satisfy the 
-	/// <link ref="schematron" />, we provide a common interface and an 
-	/// implementation optimized for specific stores. 
+	/// So in order to be efficient at keeping nodes matched so far, to satisfy the
+	/// <link ref="schematron" />, we provide a common interface and an
+	/// implementation optimized for specific stores.
 	/// <para>
-	/// Each navigator implementation typically provides an interface to let 
-	/// applications get access to the underlying store, such as the <see cref="IHasXmlNode"/> 
-	/// or <see cref="IXmlLineInfo"/> interfaces, implemented in navigators create by 
+	/// Each navigator implementation typically provides an interface to let
+	/// applications get access to the underlying store, such as the <see cref="IHasXmlNode"/>
+	/// or <see cref="IXmlLineInfo"/> interfaces, implemented in navigators create by
 	/// <see cref="XmlDocument"/> or <see cref="XPathDocument"/> classes.
 	/// </para>
 	/// </remarks>
-	/// <author ref="dcazzulino" />
+	/// <author ref="kzu" />
 	/// <progress amount="100" />
 	public interface IMatchedNodes
 	{

@@ -5,9 +5,9 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.XPath;
 using System.Collections;
-using NMatrix.Schematron.Formatters;
+using Schematron.Formatters;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// Evaluates all the schema elements synchronously.

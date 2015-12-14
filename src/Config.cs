@@ -3,9 +3,9 @@ using System.Xml;
 using System.Xml.XPath;
 using System.Text.RegularExpressions;
 using System.Runtime.Remoting.Messaging;
-using NMatrix.Schematron.Formatters;
+using Schematron.Formatters;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// Provides global settings for Schematron validation.
@@ -14,7 +14,7 @@ namespace NMatrix.Schematron
 	/// This class is public to allow inheritors of Schematron elements
 	/// to use these global settings.
 	/// </remarks>
-	/// <author ref="dcazzulino" />
+	/// <author ref="kzu" />
 	/// <progress amount="100" />
 	public class Config
 	{
@@ -98,7 +98,7 @@ namespace NMatrix.Schematron
 		/// A default empty navigator used to pre-compile XPath expressions.
 		/// </summary>
 		/// <remarks>
-		/// Compiling <see cref="XPathExpression"/> doesn't involve any namespace, 
+		/// Compiling <see cref="XPathExpression"/> doesn't involve any namespace,
 		/// name table or other specific processing. It's only a parsing procedure that
 		/// builds the abstract syntax tree for later evaluation. So we can safely
 		/// use an empty <see cref="XPathNavigator"/> to compile them against.
@@ -114,13 +114,13 @@ namespace NMatrix.Schematron
 		internal static XPathNavigator DefaultNavigator
 		{
 			// Returning a cloned navigator appeared to solve the threading issues
-			// we had, because a single navigator was being used to compile all the 
+			// we had, because a single navigator was being used to compile all the
 			// expressions in all potential threads.
 			get { return _navigator.Clone(); }
 		}
 
 		static XmlNamespaceManager _nsmanager;
-		
+
 		/// <summary>
 		/// Manager to use when executing expressions that validate or
 		/// load Schematron and Embedded Schematron schemas.

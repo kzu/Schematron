@@ -2,7 +2,7 @@ using System;
 using System.Xml;
 using System.Xml.XPath;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// Strategy class for matching and keeping references to nodes in an xml document.
@@ -12,7 +12,7 @@ namespace NMatrix.Schematron
 	/// it implements the <see cref="IHasXmlNode"/> interface, which is used to gain
 	/// access to the underlying node.
 	/// </remarks>
-	/// <author ref="dcazzulino" />
+	/// <author ref="kzu" />
 	/// <progress amount="100" />
 	class DomMatchedNodes : IMatchedNodes
 	{

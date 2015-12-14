@@ -4,7 +4,7 @@ using System.Xml.XPath;
 using System.Xml.Schema;
 using System.Text;
 
-namespace NMatrix.Schematron.Formatters
+namespace Schematron.Formatters
 {
 	/// <summary>
 	/// Look at <see cref="IFormatter"/> documentation.

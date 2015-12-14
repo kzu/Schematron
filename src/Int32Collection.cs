@@ -40,7 +40,7 @@ using System.Collections;
 
 using T = System.Int32;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// An optimized collection for holding <see cref="Int32"/> values.

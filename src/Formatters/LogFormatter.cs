@@ -6,7 +6,7 @@ using System.Xml;
 using System.Xml.XPath;
 using System.Xml.Schema;
 
-namespace NMatrix.Schematron.Formatters
+namespace Schematron.Formatters
 {
 	/// <summary>
 	/// Provides a complete log of validation errors in text format.
@@ -18,10 +18,10 @@ namespace NMatrix.Schematron.Formatters
 		{
 		}
 
-        /// <summary>
-        /// Look at <see cref="IFormatter.Format"/> documentation.
-        /// </summary>
-        public override void Format(Test source, XPathNavigator context, StringBuilder output)
+		/// <summary>
+		/// Look at <see cref="IFormatter.Format(Test, XPathNavigator, StringBuilder)"/> documentation.
+		/// </summary>
+		public override void Format(Test source, XPathNavigator context, StringBuilder output)
 		{
 			string msg = source.Message;
 			StringBuilder sb = new StringBuilder();
@@ -30,7 +30,7 @@ namespace NMatrix.Schematron.Formatters
 			// As we move on, we have to append starting from the last point,
 			// skipping the <name> expression itself: Substring(offset, name.Index - offset).
 			int offset = 0;
-			
+
 			for (int i = 0; i < source.NameExpressions.Count; i++)
 			{
 				Match name = source.NameExpressions[i];
@@ -47,7 +47,7 @@ namespace NMatrix.Schematron.Formatters
 					string result = null;
 					if (expr.ReturnType == XPathResultType.NodeSet)
 					{
-						// It the result of the expression is a nodeset, we only get the element 
+						// It the result of the expression is a nodeset, we only get the element
 						// name of the first node, which is compatible with XSLT implementation.
 						XPathNodeIterator nodes = (XPathNodeIterator)context.Evaluate(expr);
 						if (nodes.MoveNext())
@@ -66,7 +66,7 @@ namespace NMatrix.Schematron.Formatters
 			}
 
 			sb.Append(msg.Substring(offset));
-           
+
 			// Finally remove any non-name schematron tag in the message.
             string res = TagExpressions.AllSchematron.Replace(sb.ToString(), String.Empty);
 			sb = new StringBuilder();
@@ -96,7 +96,7 @@ namespace NMatrix.Schematron.Formatters
 		}
 
         /// <summary>
-        /// Look at <see cref="IFormatter.Format"/> documentation.
+        /// Look at <see cref="IFormatter.Format(Pattern, XPathNavigator, StringBuilder)"/> documentation.
         /// </summary>
         public override void Format(Pattern source, XPathNavigator context, StringBuilder output)
 		{
@@ -105,7 +105,7 @@ namespace NMatrix.Schematron.Formatters
 		}
 
         /// <summary>
-        /// Look at <see cref="IFormatter.Format"/> documentation.
+        /// Look at <see cref="IFormatter.Format(Schema, XPathNavigator, StringBuilder)"/> documentation.
         /// </summary>
         public override void Format(Schema source, XPathNavigator context, StringBuilder output)
 		{
@@ -118,7 +118,7 @@ namespace NMatrix.Schematron.Formatters
 		}
 
         /// <summary>
-        /// Look at <see cref="IFormatter.Format"/> documentation.
+        /// Look at <see cref="IFormatter.Format(ValidationEventArgs, StringBuilder)"/> documentation.
         /// </summary>
         public override void Format(ValidationEventArgs source, StringBuilder output)
 		{
@@ -129,7 +129,7 @@ namespace NMatrix.Schematron.Formatters
 		}
 
 		/// <summary>
-		/// Look at <see cref="IFormatter.Format"/> documentation.
+		/// Look at <see cref="IFormatter.Format(XmlSchemaSet, StringBuilder)"/> documentation.
 		/// </summary>
 		public override void Format(XmlSchemaSet schemas, StringBuilder output)
 		{
@@ -138,7 +138,7 @@ namespace NMatrix.Schematron.Formatters
 		}
 
 		/// <summary>
-		/// Look at <see cref="IFormatter.Format"/> documentation.
+		/// Look at <see cref="IFormatter.Format(SchemaCollection, StringBuilder)"/> documentation.
 		/// </summary>
 		public override void Format(SchemaCollection schemas, StringBuilder output)
 		{

@@ -1,11 +1,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMatrix.Schematron", "src\NMatrix.Schematron.csproj", "{DB7369F1-69CF-4821-98E3-9D6422A7CC36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schematron", "src\Schematron.csproj", "{DB7369F1-69CF-4821-98E3-9D6422A7CC36}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{CEE7139C-CEDE-4967-825B-CC6DC0188685}"
 	ProjectSection(SolutionItems) = preProject
 		doc\Findings.doc = doc\Findings.doc
-		doc\NNatrix.Schematron.xml = doc\NNatrix.Schematron.xml
+		doc\Schematron.xml = doc\Schematron.xml
 		doc\Notes.txt = doc\Notes.txt
 	EndProjectSection
 EndProject

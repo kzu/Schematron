@@ -1,12 +1,12 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// Represents the an error in the Schematron schema.
 	/// </summary>
-	/// <author ref="dcazzulino" />
+	/// <author ref="kzu" />
 	/// <progress amount="100" />
 	[Serializable()]
 	public class BadSchemaException : ApplicationException
@@ -17,7 +17,7 @@ namespace NMatrix.Schematron
 		public BadSchemaException()
 		{
 		}
-		
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BadSchemaException"/> class.
 		/// </summary>
@@ -25,7 +25,7 @@ namespace NMatrix.Schematron
 		public BadSchemaException(string message) : base(message)
 		{
 		}
-		
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BadSchemaException"/> class.
 		/// </summary>
@@ -35,7 +35,7 @@ namespace NMatrix.Schematron
 			base(info, context)
 		{
 		}
-		
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BadSchemaException"/> class.
 		/// </summary>

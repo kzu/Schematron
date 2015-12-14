@@ -5,7 +5,7 @@ using System.Xml;
 using System.Xml.XPath;
 using System.Xml.Schema;
 
-namespace NMatrix.Schematron.Formatters
+namespace Schematron.Formatters
 {
 	/// <summary>
 	/// Provides a simple failure message, without any details of specific validation errors.
@@ -18,7 +18,7 @@ namespace NMatrix.Schematron.Formatters
 		}
 
         /// <summary>
-        /// Look at <see cref="IFormatter.Format"/> documentation.
+        /// Look at <see cref="IFormatter.Format(Schema, XPathNavigator, StringBuilder)"/> documentation.
         /// </summary>
 		public override void Format(Schema source, XPathNavigator context, StringBuilder output)
 		{

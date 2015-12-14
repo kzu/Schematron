@@ -5,7 +5,7 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Web.Services.Protocols;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// Extension that allows Schematron validation on webmethods.

@@ -7,9 +7,9 @@ using System.Xml.XPath;
 using System.Collections;
 using System.Threading;
 using System.Runtime.Remoting.Messaging;
-using NMatrix.Schematron.Formatters;
+using Schematron.Formatters;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// Performs validation of Schematron elements and schemas.

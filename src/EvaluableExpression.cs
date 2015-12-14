@@ -2,16 +2,16 @@ using System;
 using System.Xml;
 using System.Xml.XPath;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// Base class for elements that can be evaluated by an XPath expression.
 	/// </summary>
 	/// <remarks>
 	/// This class performs the expression compilation, and provides
-	/// access to the context through two methods. 
+	/// access to the context through two methods.
 	/// </remarks>
-	/// <author ref="dcazzulino" />
+	/// <author ref="kzu" />
 	/// <progress amount="100" />
 	public abstract class EvaluableExpression
 	{
@@ -36,7 +36,7 @@ namespace NMatrix.Schematron
 		{
 		}
 
-		/// <summary>Reinitializes the element with a new expression, 
+		/// <summary>Reinitializes the element with a new expression,
 		/// after the class has already been constructed</summary>
 		/// <param name="xpathExpression">The expression to evaluate.</param>
 		protected void InitializeExpression(string xpathExpression)
@@ -54,9 +54,9 @@ namespace NMatrix.Schematron
 		/// </remarks>
 		public XPathExpression CompiledExpression
 		{
-			get 
-			{ 
-				if (_expr != null) return _expr.Clone(); 
+			get
+			{
+				if (_expr != null) return _expr.Clone();
 				else return null;
 			}
 		}

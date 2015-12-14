@@ -3,16 +3,16 @@ using System.Text;
 using System.Xml.XPath;
 using System.Collections;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// A Pattern element, containing <see cref="Rule"/> elements.
 	/// </summary>
 	/// <remarks>
 	/// Constructor is not public. To programatically create an instance of this
-	/// class use the <see cref="Phase.CreatePattern"/> factory method.
+	/// class use the <see cref="Phase.CreatePattern(string)"/> factory method.
 	/// </remarks>
-	/// <author ref="dcazzulino" />
+	/// <author ref="kzu" />
 	/// <progress amount="100" />
 	public class Pattern
 	{
@@ -30,17 +30,17 @@ namespace NMatrix.Schematron
 
 		/// <summary>Gets or sets the pattern's Id.</summary>
 		/// <remarks>
-		/// This property is important because it is used by the 
+		/// This property is important because it is used by the
 		/// <see cref="Phase"/> to activate certain patterns.
 		/// </remarks>
-		public string Id		
+		public string Id
 		{
 			get { return _id; }
 			set { _id = value; }
 		}
 
 		/// <summary>Gets the rules contained in this pattern.</summary>
-		public RuleCollection Rules		
+		public RuleCollection Rules
 		{
 			get { return _rules; }
 		}

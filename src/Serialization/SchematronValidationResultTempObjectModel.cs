@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NMatrix.Schematron.Serialization
+namespace Schematron.Serialization
 {
     /// <summary>
     /// <remarks>

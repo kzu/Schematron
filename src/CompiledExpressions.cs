@@ -2,19 +2,19 @@ using System;
 using System.Xml;
 using System.Xml.XPath;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
-	/// This class keeps static precompiled expressions used 
+	/// This class keeps static precompiled expressions used
 	/// in the Schematron schema loading and validation processes.
 	/// </summary>
 	/// <remarks>
 	/// All expressions are compiled against the <see cref="Config.DefaultNavigator"/>
 	/// object. All the <see cref="XPathExpression"/> objects are initialized with
-	/// the <see cref="Config.DefaultNsManager"/> for schematron and XML Schema 
+	/// the <see cref="Config.DefaultNsManager"/> for schematron and XML Schema
 	/// namespaces resolution.
 	/// </remarks>
-	/// <author ref="dcazzulino" />
+	/// <author ref="kzu" />
 	/// <progress amount="100" />
 	class CompiledExpressions
 	{
@@ -42,7 +42,7 @@ namespace NMatrix.Schematron
 			EmbeddedSchema.SetContext(mgr);
 
 			// We use descendant-or-self for the XPath because the phase will always be
-			// contained in a parent element, which is the context for the execution, 
+			// contained in a parent element, which is the context for the execution,
 			// usually the sch:schema element or an xsd:appinfo.
 			Phase = Config.DefaultNavigator.Compile("descendant-or-self::sch:phase");
 			Phase.SetContext(mgr);
@@ -71,7 +71,7 @@ namespace NMatrix.Schematron
 			Report.SetContext(mgr);
 
 			// We use descendant-or-self because sch:diagnostics can only be used inside a sch:schema element.
-			// Currently not in implemented. 
+			// Currently not in implemented.
 			// Diagnostics = Config.DefaultNavigator.Compile("descendant-or-self::sch:diagnostics");
 			// Diagnostics.SetContext(mgr);
 		}

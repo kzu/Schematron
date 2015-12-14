@@ -3,11 +3,11 @@ using System.IO;
 using System.Xml;
 using System.Xml.XPath;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// </summary>
-    /// <author ref="dcazzulino" />
+    /// <author ref="kzu" />
     /// <progress amount="100">Lacks attributes defined in Schematron, but not in use currently.</progress>
     public class Schema
 	{
@@ -122,7 +122,7 @@ namespace NMatrix.Schematron
 			get { return _title; }
 			set { _title = value; }
 		}
-		
+
 		/// <summary />
         public PhaseCollection Phases
 		{

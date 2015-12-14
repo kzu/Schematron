@@ -3,7 +3,7 @@ using System.Xml;
 using System.Xml.XPath;
 using System.Collections;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// Strategy class for matching and keeping references to nodes in an <see cref="XPathDocument"/>.

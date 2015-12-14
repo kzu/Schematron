@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>A collection of Test elements.</summary>
-	/// <author ref="dcazzulino" />
+	/// <author ref="kzu" />
 	/// <progress amount="100" />
 	public class TestCollection : CollectionBase
 	{
@@ -14,7 +14,7 @@ namespace NMatrix.Schematron
 		}
 
 		/// <summary>Returns the Test element at the specified position.</summary>
-		public Test this[int index] 
+		public Test this[int index]
 		{
 			get { return (Test)InnerList[index]; }
 			set { InnerList[index] = value; }
@@ -45,7 +45,7 @@ namespace NMatrix.Schematron
 		{
 			return InnerList.Contains(value);
 		}
-		
+
 		/// <summary></summary>
 		public void CopyTo(Test[] array, int index)
 		{
@@ -68,7 +68,7 @@ namespace NMatrix.Schematron
 		public void Remove(Test value)
 		{
 			int index = IndexOf(value);
-			if ( index < 0 ) 
+			if ( index < 0 )
 				throw(new ArgumentException("The specified object is not found in the collection"));
 
 			RemoveAt(index);

@@ -1,24 +1,24 @@
 using System;
 using System.Xml.XPath;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// A Phase element, containing the active <see cref="Pattern"/> elements.
 	/// </summary>
 	/// <remarks>
 	/// The <link ref="schematron" /> allows a certaing degree of workflow
-	/// through the use of phases. A document can have several states, and 
-	/// therefore different sets of rules should be checked against it. 
+	/// through the use of phases. A document can have several states, and
+	/// therefore different sets of rules should be checked against it.
 	/// <para>
 	/// This element allows execution of a set of 'active' patterns.
 	/// </para>
 	/// <para>
 	/// Constructor is not public. To programatically create an instance of this
-	/// class use the <see cref="Schema.CreatePhase"/> factory method.
+	/// class use the <see cref="Schema.CreatePhase(string)"/> factory method.
 	/// </para>
 	/// </remarks>
-	/// <author ref="dcazzulino" />
+	/// <author ref="kzu" />
 	/// <progress amount="100" />
 	public class Phase
 	{
@@ -28,7 +28,7 @@ namespace NMatrix.Schematron
 		/// <summary>
 		/// The identifier to check for All phases.
 		/// </summary>
-		/// <remarks>Causes all the patterns in a schema to be checked, 
+		/// <remarks>Causes all the patterns in a schema to be checked,
 		/// irrespective of the phases where they are activated.</remarks>
 		public const string All = "#ALL";
 
@@ -46,7 +46,7 @@ namespace NMatrix.Schematron
 
 		#region Properties
 		/// <summary>Gets or sets the phase identifier.</summary>
-		public string Id		
+		public string Id
 		{
 			get { return _id; }
 			set { _id = value; }

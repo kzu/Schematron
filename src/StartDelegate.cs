@@ -1,6 +1,6 @@
 using System;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary />
 	public delegate void StartDelegate();

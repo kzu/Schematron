@@ -4,7 +4,7 @@ using System.Xml.XPath;
 using System.Text.RegularExpressions;
 using System.Collections;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// Base class for testing units of Schematron, such as Assert or Report elements.

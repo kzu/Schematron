@@ -3,7 +3,7 @@ using System.Xml;
 using System.Xml.XPath;
 using System.Collections;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary />
 	public class SchemaLoader

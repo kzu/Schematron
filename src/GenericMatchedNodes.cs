@@ -3,19 +3,19 @@ using System.Xml;
 using System.Xml.XPath;
 using System.Collections;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
-	/// Strategy class for matching and keeping references to nodes in 
+	/// Strategy class for matching and keeping references to nodes in
 	/// an unknown implementation of <see cref="XPathNavigator"/>.
 	/// </summary>
 	/// <remarks>
-	/// This implementation uses the standard <see cref="XPathNavigator.IsSamePosition"/> 
+	/// This implementation uses the standard <see cref="XPathNavigator.IsSamePosition"/>
 	/// to know if a navigator has already been matched. This is not optimum because
 	/// a complete traversal of nodes matched so far has to be performed, but it will
 	/// work with all implementations of <see cref="XPathNavigator"/>.
 	/// </remarks>
-	/// <author ref="dcazzulino" />
+	/// <author ref="kzu" />
 	/// <progress amount="100" />
 	class GenericMatchedNodes : IMatchedNodes
 	{

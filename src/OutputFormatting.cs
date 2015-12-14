@@ -1,16 +1,16 @@
 using System;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>
 	/// Represents the valid output formats.
 	/// </summary>
 	/// <remarks>
-	/// Items will be added to the list to reflect the 
-	/// additional <see cref="Formatters.IFormatter"/> implementations we 
+	/// Items will be added to the list to reflect the
+	/// additional <see cref="Formatters.IFormatter"/> implementations we
 	/// will develop.
 	/// </remarks>
-	/// <author ref="dcazzulino" />
+	/// <author ref="kzu" />
 	/// <progress amount="100" />
 	public enum OutputFormatting
 	{

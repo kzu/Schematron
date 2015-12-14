@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Specialized;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary>A collection of Phase elements</summary>
-	/// <author ref="dcazzulino" />
+	/// <author ref="kzu" />
 	/// <progress amount="100" />
 	public class PhaseCollection : DictionaryBase
 	{
@@ -16,7 +16,7 @@ namespace NMatrix.Schematron
 		}
 
 		/// <summary>Required indexer.</summary>
-		public Phase this[string key] 
+		public Phase this[string key]
 		{
 			get { return (Phase)Dictionary[key]; }
 			set { Dictionary[key] = value; }
@@ -51,7 +51,7 @@ namespace NMatrix.Schematron
 		/// <summary></summary>
 		public void Remove(Phase value)
 		{
-			if (!Dictionary.Contains(value.Id)) 
+			if (!Dictionary.Contains(value.Id))
 				throw(new ArgumentException("The specified object is not found in the collection"));
 
 			Dictionary.Remove(value.Id);

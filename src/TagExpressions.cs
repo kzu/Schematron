@@ -1,7 +1,7 @@
 using System;
 using System.Text.RegularExpressions;
 
-namespace NMatrix.Schematron
+namespace Schematron
 {
 	/// <summary />
 	internal class TagExpressions
