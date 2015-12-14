@@ -193,7 +193,7 @@
     <Compile Include="SchemaLoader.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Serialization\SchematronTempObjectModel.cs" />
+    <Compile Include="Serialization\SchematronValidationResultTempObjectModel.cs" />
     <Compile Include="StartDelegate.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -228,6 +228,7 @@
     <None Include="Formatters\XmlFormatter.xsx">
       <DependentUpon>XmlFormatter.xsd</DependentUpon>
     </None>
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
