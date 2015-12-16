@@ -337,7 +337,7 @@ namespace Schematron
 
                     if (_haserrors) throw new BadSchemaException(_errors.ToString());
 
-                    set.Add(xs);
+                    schemaSet.Add(xs);
                 }
             }
 
@@ -362,6 +362,8 @@ namespace Schematron
             var xmlContent = default(string);
             var nameTable = default(XmlNameTable);
             var namespaceUri = default(string);
+
+            _xmlschemas = _xmlschemas ?? new XmlSchemaSet();
 
             TryAddXmlSchema(targetNamespace, schemaUri, _xmlschemas, OnValidation, out xmlContent, out nameTable, out namespaceUri);
 
