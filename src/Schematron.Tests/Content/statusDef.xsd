@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            targetNamespace="http://example.com/po-schematron/status" 
+            xmlns="http://example.com/po-schematron/status">
+  <xsd:simpleType name="statusDef">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Cancelled" />
+      <xsd:enumeration value="Paid" />
+      <xsd:enumeration value="Placed" />
+      <xsd:enumeration value="Submitted" />
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

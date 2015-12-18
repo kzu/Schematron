@@ -1,28 +1,22 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using System.Xml;
 using System.Xml.XPath;
 using System.Xml.Serialization;
-using UnitTesting = Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text;
+using System.Xml.Schema;
+using Xunit;
 
 namespace Schematron.Tests
-{
-    [TestClass]
+{    
     public class ValidatorTests
     {
         const string XsdLocation = "./Content/po-schema.xsd";
+        const string XsdWithPartialSchemaLocation = "./Content/po-schema-with-schema-import.xsd";
         const string XmlContentLocation = "./Content/po-instance.xml";
         const string TargetNamespace = "http://example.com/po-schematron";
 
-        public ValidatorTests()
-        {
-
-        }
-
-        [ExpectedException(typeof(Schematron.ValidationException))]
-        [TestMethod]
+        [Fact]
         public void NewAddSchemaSignatureShouldNotBreakCode()
         {
             var validatorA = new Validator(OutputFormatting.XML);
@@ -53,16 +47,14 @@ namespace Schematron.Tests
             {
                 resultB = ex.Message;
 
-                UnitTesting.Assert.IsTrue(resultA == resultB);
+                Xunit.Assert.True(resultA == resultB);
 
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-
-                throw;
+                System.Diagnostics.Debug.WriteLine(ex.Message);         
             }
 
         }
 
-        [TestMethod]
+        [Fact]
         public void ValidateShouldReturnSchematronValidationResultWhenSchematronConstraintsAreNotMet()
         {
             //Arrange
@@ -92,12 +84,45 @@ namespace Schematron.Tests
 
                         // Assert
 
-                        UnitTesting.Assert.IsNotNull(obj);
-                        UnitTesting.Assert.IsNotNull(obj.xml);
-                        UnitTesting.Assert.IsNotNull(obj.schematron);
+
+                        Xunit.Assert.NotNull(obj);
+                        Xunit.Assert.NotNull(obj.xml);
+                        Xunit.Assert.NotNull(obj.schematron);
                     }
                 }
             }
+        }
+        
+        [Fact]
+        public void WhenUsingTheXmlReaderApproach_ToSupplyASchema_TypesFromImportsAreNotResolved()
+        {
+            // arrange
+            var validator = new Schematron.Validator();
+            
+            // act, (assert)
+            Xunit.Assert.Throws<XmlSchemaException>(() => validator.AddSchema(XmlReader.Create(XsdWithPartialSchemaLocation)));                      
+        }
+        
+        [Fact]
+        public void WhenUsingTheXmlSchemaSetBasedApproach_ToSupplyASchema_TypesFromImportsAreResolved()
+        {
+            // arrange
+            var validator = new Schematron.Validator();
+
+            var count = validator.XmlSchemas != null ? validator.XmlSchemas.Count : 0;
+
+            // act, (assert)
+            validator.AddSchema(TargetNamespace, XsdWithPartialSchemaLocation);
+
+            Xunit.Assert.True(validator.Schemas.Count == count + 1);
+
+            //var res = validator.Validate(XmlContentLocation);
+        }
+
+        //[Fact]
+        public void DoTheRawXmlValidation()
+        {
+            throw new NotImplementedException();
         }
     }
 }
