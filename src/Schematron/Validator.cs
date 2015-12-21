@@ -287,6 +287,110 @@ namespace Schematron
 			_schematrons.Add(sch);
 			_errors = null;
 		}
+
+
+        #region WORK IN PROGRESS :: The need the for the signature AddSchema(string targetNamespace, string schemaUri) comes from resolving imported (schemaLocation hinted) partial schemas
+
+        private bool TryAddXmlSchema(
+            string targetNamespace,
+            string schemaUri,
+            XmlSchemaSet schemaSet,
+            Action<object, ValidationEventArgs> validationHandler,
+            out string xmlContent,
+            out XmlNameTable nameTable,
+            out string namespaceUri)
+        {
+            xmlContent = default(string);
+            nameTable = default(XmlNameTable);
+            namespaceUri = default(string);
+
+            using (var reader = XmlReader.Create(schemaUri))
+            {
+                if (reader.MoveToContent() == XmlNodeType.None)
+                {
+                    throw new BadSchemaException("No information found to read");
+                }
+
+                nameTable = reader.NameTable;
+                namespaceUri = reader.NamespaceURI;
+                xmlContent = reader.ReadOuterXml();
+
+                if (!IsStandardSchema(namespaceUri))
+                    return false;
+
+                using (var stringReader = new StringReader(xmlContent))
+                {
+                    if (_errors == null)
+                    {
+                        _errors = new StringBuilder();
+                    }
+
+                    var xs = XmlSchema.Read(new XmlTextReader(stringReader, nameTable), new ValidationEventHandler(validationHandler));
+
+                    var set = new XmlSchemaSet();
+                    set.Add(targetNamespace, schemaUri);
+
+                    if (!set.IsCompiled)
+                    {
+                        set.Compile();
+                    }
+
+                    if (_haserrors) throw new BadSchemaException(_errors.ToString());
+
+                    schemaSet.Add(xs);
+                }
+            }
+
+            return true;
+        }
+
+        private bool IsStandaloneSchematron(string namespaceUri)
+        {
+            return namespaceUri == Schema.Namespace;
+        }
+
+        private bool IsStandardSchema(string namespaceUri)
+        {
+            return namespaceUri == XmlSchema.Namespace;
+        }
+        /// <summary>
+        /// Adds a schema to the collection to use for validation.
+        /// </summary>
+        /// <remarks>Validation takes place here.</remarks>
+        public void AddSchema(string targetNamespace, string schemaUri)
+        {
+            var xmlContent = default(string);
+            var nameTable = default(XmlNameTable);
+            var namespaceUri = default(string);
+
+            _xmlschemas = _xmlschemas ?? new XmlSchemaSet();
+
+            TryAddXmlSchema(targetNamespace, schemaUri, _xmlschemas, OnValidation, out xmlContent, out nameTable, out namespaceUri);
+
+            XmlDocument doc = new XmlDocument(nameTable);
+            doc.LoadXml(xmlContent);
+
+            XPathNavigator nav = doc.CreateNavigator();
+            _evaluationctx.Source = nav;
+
+            if (IsStandaloneSchematron(namespaceUri))
+                PerformValidation(Config.FullSchematron);
+            else
+                PerformValidation(Config.EmbeddedSchematron);
+
+            if (_evaluationctx.HasErrors)
+                throw new BadSchemaException(_evaluationctx.Messages.ToString());
+
+            Schema sch = new Schema();
+            sch.Load(nav);
+
+            _schematrons.Add(sch);
+            _errors = null;
+        }
+
+        #endregion
+
+
 		#endregion
 
 		#region Validation Methods
