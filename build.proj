@@ -18,7 +18,6 @@
 	<Target Name="Build" DependsOnTargets="GitVersion">
 		<PropertyGroup>
 			<Version>$(GitSemVerMajor).$(GitSemVerMinor).$(GitSemVerPatch)$(GitSemVerDashLabel)</Version>
-			<Args>-Version $(Version) -NoPackageAnalysis -NonInteractive -OutputDirectory $(Out)</Args>
 		</PropertyGroup>
 
 		<ItemGroup>
@@ -35,7 +34,7 @@
 
 	<Target Name="Package" DependsOnTargets="Build">
 		<MakeDir Directories="$(Out)" Condition=" !Exists('$(Out)') " />
-		<Exec Command='"$(NuGet)" Pack "%(Solution.NuSpec)" $(Args) -Properties Id=%(Solution.Id);Configuration=$(Configuration)'
+		<Exec Command='"$(NuGet)" Pack "%(Solution.NuSpec)" -Version %(Solution.Version) -NoPackageAnalysis -NonInteractive -Properties Id=%(Solution.Id);Configuration=$(Configuration)'
 			  Condition=" Exists('%(Solution.NuSpec)') " />
 	</Target>
 
