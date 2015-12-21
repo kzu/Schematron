@@ -1,3 +1,5 @@
+os: Visual Studio 2015
+
 init:
   - git config --global core.autocrlf input
 
@@ -8,13 +10,14 @@ deploy:
   - provider: NuGet
     api_key:
       secure: 7MS5+XWaFchMXFqzgneQCqo9U0DlxiPXe/KWWUnbCBDEizVn06EjdQZkWu1gbNOJ
-    artifact: Package
+    artifact: /.*\.nupkg/
     on:
       branch: master
       
 nuget:
   project_feed: true
+  disable_publish_on_pr: true
   
 artifacts:
-  - path: out\*.nupkg
-    name: Package
+  - path: '*.nupkg'
+    name: Packages
