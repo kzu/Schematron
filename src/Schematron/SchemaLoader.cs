@@ -181,8 +181,12 @@ namespace Schematron
 
 			while (extends.MoveNext())
 			{
-				rule.Extend((Rule) _abstracts[extends.Current.GetAttribute("rule", String.Empty)]);
-			}
+                string ruleName = extends.Current.GetAttribute("rule", String.Empty);
+                if (_abstracts.ContainsKey(ruleName))
+                  rule.Extend((Rule) _abstracts[ruleName]);
+                else
+                  throw new BadSchemaException("The abstract rule with id=\""+ruleName+"\" is used but not defined.");
+            }
 		}
 
 		private void LoadAsserts(Rule rule, XPathNavigator context)

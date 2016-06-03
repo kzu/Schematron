@@ -7,12 +7,12 @@ namespace Schematron
 	internal class TagExpressions
 	{
 		/// <summary>
-		/// The compiled regular expression to replace the special <c>name</c> tag inside a message.
+		/// The compiled regular expression to replace the special <c>name</c> and <c>value</c> tags inside a message.
 		/// </summary>
 		/// <remarks>
-		/// Replaces each instance of <c>name</c> tags with the value un the current context element.
+		/// Replaces each instance of <c>name</c> and <c>value</c>tags with the value in the current context element.
 		/// </remarks>
-		public static Regex Name;
+		public static Regex NameValueOf;
 
 		public static Regex Emph;
 		public static Regex Dir;
@@ -25,7 +25,7 @@ namespace Schematron
 		static TagExpressions()
 		{
 			// The element declarations can contain the namespace if expanded in a loaded document.
-			Name = new Regex(@"<[^\s>]*\bname\b[^>]*/>", RegexOptions.Compiled); 
+			NameValueOf = new Regex(@"<[^\s>]*\b(name|value-of)\b[^>]*/>", RegexOptions.Compiled); 
 			Emph = new Regex(@"<[^\s>]*\bemph\b[^>]*>", RegexOptions.Compiled); 
 			Dir = new Regex(@"<[^\s]*\bdir\b[^>]*>", RegexOptions.Compiled); 
 			Span = new Regex(@"<[^\s]*\bspan\b[^>]*>", RegexOptions.Compiled); 
