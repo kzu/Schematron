@@ -9,7 +9,7 @@
                 <pattern name="Basic data">
                     <rule context="po:customer">
                         <assert test="(@sex='Male' and @title='Mr') or (@sex='Female' and (@title='Mrs' or @title='Miss'))">
-													Attributes sex and title must have compatible values on element <name/>.
+													Attributes sex (<value-of select="@sex"/>) and title (<value-of select="@title"/>) must have compatible values on element <name/>.
 												</assert>
                         <report test="@customerId and @partnerId">
 													Both customerId and partnerId can't be present on element <name/>.
