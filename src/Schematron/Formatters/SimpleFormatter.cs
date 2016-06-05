@@ -27,49 +27,7 @@ namespace Schematron.Formatters
         /// </summary>
         public override void Format(Test source, XPathNavigator context, StringBuilder output)
 		{
-			string msg = source.Message;
-			StringBuilder sb = new StringBuilder();
-			XPathExpression expr;
-
-			// As we move on, we have to append starting from the last point,
-			// skipping the <name> expression itself: Substring(offset, name.Index - offset).
-			int offset = 0;
-
-			for (int i = 0; i < source.NameExpressions.Count; i++)
-			{
-				Match name = source.NameExpressions[i];
-				expr = source.NamePaths[i];
-
-				// Append the text without the expression.
-				sb.Append(msg.Substring(offset, name.Index - offset));
-
-				// Does the name element have a path attribute?
-				if (expr != null)
-				{
-					expr.SetContext(source.GetContext());
-
-					string result = null;
-					if (expr.ReturnType == XPathResultType.NodeSet)
-					{
-						// It the result of the expression is a nodeset, we only get the element
-						// name of the first node, which is compatible with XSLT implementation.
-						XPathNodeIterator nodes = (XPathNodeIterator)context.Evaluate(expr);
-						if (nodes.MoveNext())
-							result = nodes.Current.Name;
-					}
-					else
-						result = context.Evaluate(expr) as string;
-
-					if (result != null)
-						sb.Append(result);
-				}
-				else
-					sb.Append(context.Name);
-
-				offset = name.Index + name.Length;
-			}
-
-			sb.Append(msg.Substring(offset));
+            StringBuilder sb = FormatMessage(source, context, source.Message);
 
 			if (source is Assert)
 				sb.Insert(0, "\tAssert fails: ");

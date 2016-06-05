@@ -28,91 +28,52 @@ namespace Schematron.Formatters
 		/// Look at <see cref="IFormatter.Format(Test, XPathNavigator, StringBuilder)"/> documentation.
 		/// </summary>
 		public override void Format(Test source, XPathNavigator context, StringBuilder output)
-		{
-			string msg = source.Message;
-			XmlTextWriter writer = new XmlTextWriter(new StringWriter(output));
-			//Temporary disable namespace support.
-			writer.Namespaces = false;
-			StringBuilder sb = new StringBuilder();
-			XPathExpression expr;
+        {
+            string msg = source.Message;
+            XmlTextWriter writer = new XmlTextWriter(new StringWriter(output));
+            //Temporary disable namespace support.
+            writer.Namespaces = false;
 
-			// Start element declaration.
-			writer.WriteStartElement("message");
+            // Start element declaration.
+            writer.WriteStartElement("message");
 
-			// As we move on, we have to append starting from the last point,
-			// skipping the <name> expression itself: Substring(offset, name.Index - offset).
-			int offset = 0;
+            msg = FormatMessage(source, context, msg).ToString();
 
-			for (int i = 0; i < source.NameExpressions.Count; i++)
-			{
-				Match name = source.NameExpressions[i];
-				expr = source.NamePaths[i];
+            // Finally remove any non-name schematron tag in the message.
+            string res = TagExpressions.AllSchematron.Replace(msg, String.Empty);
 
-				// Append the text without the expression.
-				sb.Append(msg.Substring(offset, name.Index - offset));
-
-				// Does the name element have a path attribute?
-				if (expr != null)
-				{
-					expr.SetContext(source.GetContext());
-
-					string result = null;
-					if (expr.ReturnType == XPathResultType.NodeSet)
-					{
-						// It the result of the expression is a nodeset, we only get the element
-						// name of the first node, which is compatible with XSLT implementation.
-						XPathNodeIterator nodes = (XPathNodeIterator)context.Evaluate(expr);
-						if (nodes.MoveNext())
-							result = nodes.Current.Name;
-					}
-					else
-						result = context.Evaluate(expr) as string;
-
-					if (result != null)
-						sb.Append(result);
-				}
-				else
-					sb.Append(context.Name);
-
-				offset = name.Index + name.Length;
-			}
-
-			sb.Append(msg.Substring(offset));
-			// Finally remove any non-name schematron tag in the message.
-			string res = TagExpressions.AllSchematron.Replace(sb.ToString(), String.Empty);
-
-			//Accumulate namespaces found during traversal of node for its position.
-			Hashtable ns = new Hashtable();
+            //Accumulate namespaces found during traversal of node for its position.
+            Hashtable ns = new Hashtable();
 
             // Write <text> element.
-			writer.WriteElementString("text", res);
-			// Write <path> element.
-			writer.WriteElementString("path", FormattingUtils.GetFullNodePosition(context.Clone(), String.Empty, source, ns));
-			// Write <summary> element.
-			//writer.WriteElementString("summary", FormattingUtils.GetNodeSummary(context, ns, String.Empty));
-			writer.WriteStartElement("summary");
-			writer.WriteRaw(FormattingUtils.GetNodeSummary(context, ns, String.Empty));
-			writer.WriteEndElement();
+            writer.WriteElementString("text", res);
+            // Write <path> element.
+            writer.WriteElementString("path", FormattingUtils.GetFullNodePosition(context.Clone(), String.Empty, source, ns));
+            // Write <summary> element.
+            //writer.WriteElementString("summary", FormattingUtils.GetNodeSummary(context, ns, String.Empty));
+            writer.WriteStartElement("summary");
+            writer.WriteRaw(FormattingUtils.GetNodeSummary(context, ns, String.Empty));
+            writer.WriteEndElement();
 
-			// Write <position> element.
-			if (context is IXmlLineInfo)
-			{
-				writer.WriteStartElement("position");
-				IXmlLineInfo info = (IXmlLineInfo) context;
-				writer.WriteAttributeString("line", info.LineNumber.ToString());
-				writer.WriteAttributeString("column", info.LinePosition.ToString());
-				writer.WriteEndElement();
-			}
+            // Write <position> element.
+            if (context is IXmlLineInfo)
+            {
+                writer.WriteStartElement("position");
+                IXmlLineInfo info = (IXmlLineInfo)context;
+                writer.WriteAttributeString("line", info.LineNumber.ToString());
+                writer.WriteAttributeString("column", info.LinePosition.ToString());
+                writer.WriteEndElement();
+            }
 
-			// Close <message> element.
-			writer.WriteEndElement();
-			writer.Flush();
-		}
+            // Close <message> element.
+            writer.WriteEndElement();
+            writer.Flush();
+        }
 
-		/// <summary>
-		/// Look at <see cref="IFormatter.Format(Rule, XPathNavigator, StringBuilder)"/> documentation.
-		/// </summary>
-		public override void Format(Rule source, XPathNavigator context, StringBuilder output)
+        /// <summary>
+        /// Look at <see cref="IFormatter.Format(Rule, XPathNavigator, StringBuilder)"/> documentation.
+        /// </summary>
+        public override void Format(Rule source, XPathNavigator context, StringBuilder output)
 		{
 			string res = "<rule context=\"" + source.Context + "\" ";
 			if (source.Id != String.Empty) res += "id=\"" + source.Id + "\" ";

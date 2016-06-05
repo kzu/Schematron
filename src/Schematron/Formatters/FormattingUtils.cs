@@ -201,7 +201,7 @@ namespace Schematron.Formatters
 		/// </summary>
 		public static string NormalizeString(string input)
 		{
-			// Account for enconded strings, such as &lt; (<) and &gt (>).
+			// Account for encoded strings, such as &lt; (<) and &gt (>).
 			return System.Web.HttpUtility.HtmlDecode(
 				_normalize.Replace(input, " ").Trim());
 		}
