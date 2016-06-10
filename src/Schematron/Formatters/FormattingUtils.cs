@@ -31,6 +31,8 @@ namespace Schematron.Formatters
 		{
 		}
 
+		private static XPathExpression precedingSiblingsExpr = XPathExpression.Compile("preceding-sibling::*");
+
 		/// <summary>
 		/// Returns the full path to the context node. Clone the navigator to avoid loosing positioning.
 		/// </summary>
@@ -75,9 +77,8 @@ namespace Schematron.Formatters
 			}
 
 			int sibs = 1;
-
-			while (context.MoveToPrevious())
-				if (context.Name == curr) sibs++;
+			foreach (XPathNavigator prev in context.Select(precedingSiblingsExpr))
+				if (prev.Name == curr) sibs++;
 
 			if (context.MoveToParent())
 			{

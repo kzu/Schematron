@@ -147,7 +147,7 @@ namespace Schematron
 		/// different methods for accessing the underlying source. 
 		/// <para>
 		/// This makes the implementation both performant and compliant with
-		/// the restriction about node mathing (see <linkref id="schematron" />) in the spec.
+		/// the restriction about node matching (see <linkref id="schematron" />) in the spec.
 		/// </para>
 		/// <para>
 		///		<seealso cref="DomMatchedNodes"/>
